@@ -61,7 +61,7 @@ export default function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-white rounded-card border border-vine-green/20 p-8 text-center space-y-5 shadow-sm">
+      <div className="bg-card rounded-card border border-vine-green/20 p-8 text-center space-y-5 shadow-sm">
         <div className="w-12 h-12 bg-vine-green/10 text-vine-green rounded-full flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8" />
         </div>
@@ -70,7 +70,7 @@ export default function ContactForm() {
             Inquiry Sent Successfully
           </h3>
           <p className="text-xs text-muted-foreground max-w-sm mx-auto">
-            Your message has been delivered. A representative from our US or Hyderabad office will review and follow up with you shortly.
+            Your message has been delivered. A representative from our team will review and follow up with you shortly.
           </p>
         </div>
         <button
@@ -84,7 +84,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-card border border-vine-green/15 p-6 sm:p-8 space-y-5 shadow-sm">
+    <form onSubmit={handleSubmit(onSubmit)} className="bg-card rounded-card border border-vine-green/15 p-6 sm:p-8 space-y-5 shadow-sm">
       <div className="space-y-1">
         <h3 className="font-display text-lg sm:text-xl font-bold text-vine-forest">
           Send Us a Message
@@ -95,7 +95,7 @@ export default function ContactForm() {
       </div>
 
       {errorMsg && (
-        <div className="bg-red-50 text-red-700 border border-red-200 text-xs p-3 rounded-vine flex items-center gap-2">
+        <div className="bg-red-950/30 text-red-200 border border-red-900/50 text-xs p-3 rounded-vine flex items-center gap-2">
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{errorMsg}</span>
         </div>

@@ -168,7 +168,7 @@ export const mockCandidates: Candidate[] = [
     experienceLevel: "Senior (5–10 yrs)",
     skills: ["Python", "LangChain", "Vector Databases", "ChromaDB", "Pinecone", "Azure OpenAI", "API Design"],
     certifications: ["Microsoft Certified: Azure Solutions Architect Expert"],
-    education: "B.S. in Computer Science, Hyderabad University",
+    education: "B.S. in Computer Science, State University",
     workAuth: "H1B Transfer",
     availability: "30 Days",
     engagementTypes: ["Full-Time", "Contract-to-Hire"],

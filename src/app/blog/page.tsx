@@ -42,15 +42,6 @@ export const mockBlogPosts: BlogPost[] = [
     category: "Architecture",
     content: "When businesses deploy large language models, the immediate question is: how do we inject our proprietary data? The two main avenues are fine-tuning (modifying the weights of the model) and Retrieval-Augmented Generation (injecting relevant context dynamically). This guide compares the trade-offs of both approaches. We look at cost metrics, update frequencies, compliance constraints, and explain why a hybrid architecture (using PEFT for tone adaptation and semantic vector stores for factuality) is often the optimal path.",
   },
-  {
-    slug: "setting-up-successful-dual-shore-ai-teams",
-    title: "Bridging the Gap: Setting Up Successful Dual-Shore AI Development Teams",
-    excerpt: "Best practices for coordinating systems design in the US with dedicated engineering and testing delivery centers in Hyderabad.",
-    date: "April 20, 2026",
-    readTime: "7 min read",
-    category: "Management",
-    content: "Managing development across continents is a powerful way to accelerate build speeds and optimize staffing spend. However, timezone gaps and communication barriers can easily lead to integration issues. Drawing from our dual operations in San Francisco and Hyderabad, we share core guidelines for managing cross-border AI builds: establishing overlapping standups, standardizing git reviews, maintaining clear architecture definitions, and sharing uniform testing metrics.",
-  },
 ];
 
 export default function BlogListingPage() {
@@ -63,19 +54,19 @@ export default function BlogListingPage() {
     : mockBlogPosts.filter(p => p.category === selectedCat);
 
   return (
-    <div className="min-h-screen bg-root-mist pt-24 pb-16">
+    <div className="min-h-screen  pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Page Header */}
         <div className="space-y-4 text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-grape-indigo/10 border border-grape-indigo/20 text-grape-indigo rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-vine-green/10 border border-vine-green/20 text-vine-green rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
             <BookOpen className="w-3.5 h-3.5" /> AI VINE INSIGHTS
           </span>
           <h1 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest tracking-tight">
             AI Staffing & Systems Engineering Blog
           </h1>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Read technical articles, interview preparation guides, and enterprise recruiting summaries from our engineering team in the USA and Hyderabad.
+            Read technical articles, interview preparation guides, and enterprise recruiting summaries from our engineering team.
           </p>
         </div>
 
@@ -88,7 +79,7 @@ export default function BlogListingPage() {
               className={`px-4 py-1.5 rounded-full text-xs font-semibold font-mono transition-colors ${
                 selectedCat === cat
                   ? "bg-vine-green text-root-cream"
-                  : "bg-white border border-border text-muted-foreground hover:border-vine-green hover:text-vine-green"
+                  : "bg-card border border-border text-muted-foreground hover:border-vine-green hover:text-vine-green"
               }`}
             >
               {cat.toUpperCase()}
@@ -101,12 +92,12 @@ export default function BlogListingPage() {
           {filteredPosts.map((post) => (
             <div
               key={post.slug}
-              className="bg-white rounded-card p-6 border border-vine-green/10 shadow-sm hover:shadow-md hover:border-vine-green/20 transition-all duration-300 flex flex-col justify-between"
+              className="bg-card rounded-card p-6 border border-vine-green/10 shadow-sm hover:shadow-md hover:border-vine-green/20 transition-all duration-300 flex flex-col justify-between"
             >
               <div className="space-y-4">
                 {/* Meta Row */}
-                <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase tracking-wider text-grape-indigo">
-                  <span className="bg-grape-indigo/10 px-2.5 py-0.5 rounded">{post.category}</span>
+                <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase tracking-wider text-vine-green">
+                  <span className="bg-vine-green/10 px-2.5 py-0.5 rounded">{post.category}</span>
                   <div className="flex gap-3 text-muted-foreground font-semibold">
                     <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>

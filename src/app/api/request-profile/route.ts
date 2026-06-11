@@ -67,7 +67,7 @@ export async function POST(request: Request) {
           <div style="background-color: #f8fafc; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0; white-space: pre-wrap; font-size: 14px; line-height: 1.6;">${message || "No additional message details provided."}</div>
         </div>
         <div style="text-align: center; margin-top: 25px; font-size: 11px; color: #64748b;">
-          &copy; ${new Date().getFullYear()} AI VINE &bull; USA & HYDERABAD
+          &copy; ${new Date().getFullYear()} AI VINE &bull; USA
         </div>
       </div>
     `;

@@ -1,17 +1,43 @@
 "use client";
-
 import React from "react";
+import Link from "next/link";
 import HireTalentForm from "@/components/forms/HireTalentForm";
-import { Zap, Globe2, Building2, UserCheck } from "lucide-react";
+import { Building2, ArrowRight } from "lucide-react";
 
 export default function HirePage() {
+  const roleCategories = [
+    "Machine Learning Engineers",
+    "Data Scientists & Analysts",
+    "LLM / Generative AI Developers",
+    "AI Product Managers",
+    "Computer Vision Engineers",
+    "NLP Engineers",
+    "AI Infrastructure / MLOps",
+    "AI Trainers & RLHF Specialists",
+    "Prompt Engineers",
+    "AI Business Analysts",
+  ];
+
+  const engagementModels = [
+    {
+      title: "Contract / C2C",
+      desc: "Flexible, short to mid-term placements.",
+    },
+    {
+      title: "Full-Time",
+      desc: "Direct hire AI professionals.",
+    },
+    {
+      title: "Project-Based",
+      desc: "Dedicated team for defined AI projects.",
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-root-mist pt-24 pb-16">
+    <div className="min-h-screen  pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         {/* Layout Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-6">
-          
           {/* Information & Value Props (5 cols) */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
@@ -19,63 +45,52 @@ export default function HirePage() {
                 <Building2 className="w-3.5 h-3.5" /> For Companies
               </span>
               <h1 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest tracking-tight leading-tight">
-                Scale Your AI Capabilities
+                Hire Pre-Vetted AI Talent. No Guesswork.
               </h1>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Connect with pre-vetted AI, ML, Data, and MLOps engineering professionals. We bypass candidate lists by verifying skills through active technical builds before matching them to your team.
+                Tell us the role. We'll deliver interview-ready AI professionals — contract, full-time, or project-based.
               </p>
             </div>
 
-            {/* Structured Value Props */}
-            <div className="space-y-6 pt-4">
-              {/* Prop 1 */}
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-vine-green/10 flex items-center justify-center text-vine-green shrink-0">
-                  <UserCheck className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-vine-forest text-sm">Vetted Engineering Assessments</h4>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Every candidate completes a standard framework evaluation covering deep learning pipelines, system scaling, and data workflows.
-                  </p>
-                </div>
-              </div>
-
-              {/* Prop 2 */}
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-grape-indigo/10 flex items-center justify-center text-grape-indigo shrink-0">
-                  <Globe2 className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-vine-forest text-sm">Flexible Dual-Shore Models</h4>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Hire US-based remote developers for core integrations, or set up a dedicated offshore development branch in Hyderabad.
-                  </p>
-                </div>
-              </div>
-
-              {/* Prop 3 */}
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-harvest-gold/10 flex items-center justify-center text-vine-forest shrink-0">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-vine-forest text-sm">Rapid Matching & Delivery</h4>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Bypass recruiters. We present pre-matched profiles within 48 hours of your request, ready to schedule direct engineering interviews.
-                  </p>
-                </div>
+            {/* Role Categories We Fill */}
+            <div className="space-y-3">
+              <h3 className="font-display text-lg font-bold text-vine-forest">Role Categories We Fill</h3>
+              <div className="flex flex-wrap gap-2">
+                {roleCategories.map((role, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 bg-card border border-vine-green/10 text-vine-forest font-mono text-[10px] rounded hover:border-vine-sage transition-colors"
+                  >
+                    {role}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* Testimonial Quote */}
-            <div className="bg-root-cream/50 rounded-card p-6 border border-vine-green/5 space-y-3">
-              <p className="text-xs text-muted-foreground italic leading-relaxed">
-                &ldquo;AI VINE provided three senior MLOps engineers within a week. Their coding foundations and understanding of GPU scaling let them contribute on day one.&rdquo;
-              </p>
-              <p className="text-xs font-semibold text-vine-forest">
-                &mdash; VP of Engineering, Series-B FinTech SaaS
-              </p>
+            {/* Engagement Models */}
+            <div className="space-y-3">
+              <h3 className="font-display text-lg font-bold text-vine-forest">Engagement Models</h3>
+              <div className="grid grid-cols-1 gap-3">
+                {engagementModels.map((model, idx) => (
+                  <div
+                    key={idx}
+                    className="p-3 bg-card rounded-vine border border-vine-green/5 flex flex-col justify-between"
+                  >
+                    <h4 className="font-bold text-vine-forest text-xs">{model.title}</h4>
+                    <p className="text-[11px] text-muted-foreground mt-1">{model.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <Link
+                href="/talent"
+                className="flex items-center justify-center gap-1.5 px-5 py-3 bg-vine-green text-root-cream font-semibold rounded-vine text-xs hover:bg-vine-green/90 transition-colors"
+              >
+                Browse Our Talent Pool <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
 

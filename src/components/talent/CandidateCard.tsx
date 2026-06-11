@@ -31,14 +31,14 @@ const getWorkAuthBadgeClass = (auth: WorkAuth) => {
 export default function CandidateCard({ candidate, onRequestProfile }: CandidateCardProps) {
   return (
     <div
-      className="bg-root-cream rounded-card shadow-sm border-l-4 border-l-vine-green border-y border-r border-vine-green/10 p-6 flex flex-col justify-between hover:shadow-md hover:border-vine-green/30 transition-all duration-300 relative overflow-hidden"
+      className="bg-card rounded-xl shadow-lg border border-vine-sage/20 p-6 flex flex-col justify-between hover:shadow-xl hover:border-vine-sage/40 transition-all duration-300 relative overflow-hidden"
     >
       {/* Upper Section */}
       <div>
         <div className="flex justify-between items-start gap-4 mb-4">
           <div>
             {/* Candidate ID badge */}
-            <span className="inline-block bg-grape-indigo text-white text-xs font-mono font-bold px-2.5 py-1 rounded-md mb-2">
+            <span className="inline-block bg-vine-sage/20 border border-vine-sage/30 text-vine-forest text-xs font-mono font-bold px-2.5 py-1 rounded-md mb-2">
               {candidate.id}
             </span>
             <h3 className="font-display text-lg font-bold text-vine-forest leading-snug">
@@ -75,7 +75,7 @@ export default function CandidateCard({ candidate, onRequestProfile }: Candidate
             <MapPin className="w-4 h-4 text-vine-green shrink-0" />
             <span>
               <strong>Location:</strong> {candidate.locationCity} 
-              {candidate.remoteOk && <span className="text-grape-indigo font-semibold"> &bull; Remote OK</span>}
+              {candidate.remoteOk && <span className="text-vine-forest/80 font-semibold"> &bull; Remote OK</span>}
             </span>
           </div>
         </div>
@@ -85,14 +85,14 @@ export default function CandidateCard({ candidate, onRequestProfile }: Candidate
         {/* Education & Certs */}
         <div className="space-y-2 mb-6">
           <div className="flex items-start gap-2 text-xs">
-            <GraduationCap className="w-4 h-4 text-grape-indigo shrink-0 mt-0.5" />
+            <GraduationCap className="w-4 h-4 text-vine-forest/60 shrink-0 mt-0.5" />
             <span className="text-muted-foreground font-medium">
               <strong className="text-vine-forest font-semibold">Education:</strong> {candidate.education}
             </span>
           </div>
           {candidate.certifications.length > 0 && (
             <div className="flex items-start gap-2 text-xs">
-              <Award className="w-4 h-4 text-grape-indigo shrink-0 mt-0.5" />
+              <Award className="w-4 h-4 text-vine-forest/60 shrink-0 mt-0.5" />
               <span className="text-muted-foreground font-medium">
                 <strong className="text-vine-forest font-semibold">Certs:</strong> {candidate.certifications.join(", ")}
               </span>
@@ -124,7 +124,7 @@ export default function CandidateCard({ candidate, onRequestProfile }: Candidate
 
         <button
           onClick={() => onRequestProfile(candidate.id)}
-          className="w-full py-2.5 px-4 bg-vine-green hover:bg-vine-green/90 text-root-cream hover:shadow text-xs font-semibold rounded-vine flex items-center justify-center gap-1.5 transition-all duration-300"
+          className="w-full py-2.5 px-4 bg-vine-green hover:bg-vine-green/90 text-root-mist hover:shadow-lg text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-all duration-300"
         >
           Request Full Profile <ArrowRight className="w-3.5 h-3.5" />
         </button>

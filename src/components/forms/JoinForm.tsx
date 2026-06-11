@@ -75,7 +75,7 @@ export default function JoinForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-white rounded-card border border-vine-green/20 p-8 text-center space-y-5 shadow-sm">
+      <div className="bg-card rounded-card border border-vine-green/20 p-8 text-center space-y-5 shadow-sm">
         <div className="w-12 h-12 bg-vine-green/10 text-vine-green rounded-full flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8" />
         </div>
@@ -98,18 +98,18 @@ export default function JoinForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-card border border-vine-green/15 p-6 sm:p-8 space-y-5 shadow-sm">
+    <form onSubmit={handleSubmit(onSubmit)} className="bg-card rounded-card border border-vine-green/15 p-6 sm:p-8 space-y-5 shadow-sm">
       <div className="space-y-1">
         <h3 className="font-display text-lg sm:text-xl font-bold text-vine-forest">
           Join the AI VINE Talent Pool
         </h3>
         <p className="text-xs text-muted-foreground">
-          Submit your profile details and complete our technical screening to gain access to premium USA and Indian client placements.
+          Submit your profile details and complete our technical screening to gain access to premium client placements.
         </p>
       </div>
 
       {errorMsg && (
-        <div className="bg-red-50 text-red-700 border border-red-200 text-xs p-3 rounded-vine flex items-center gap-2">
+        <div className="bg-red-950/30 text-red-200 border border-red-900/50 text-xs p-3 rounded-vine flex items-center gap-2">
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{errorMsg}</span>
         </div>

@@ -37,17 +37,16 @@ export default function Home() {
   };
 
   return (
-    <div className="overflow-hidden bg-root-mist">
+    <div className="overflow-hidden ">
       {/* 1. Hero Section */}
-      <section className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-12 pb-6 overflow-hidden">
         {/* Background Video */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none min-h-screen">
           <video
             autoPlay
-            loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-fill"
           >
             <source src="/HeroBg.mp4" type="video/mp4" />
           </video>
@@ -58,31 +57,27 @@ export default function Home() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-left space-y-8 max-w-4xl mr-auto"
+            className="text-left space-y-4 max-w-4xl mr-auto"
           >
-            {/* Tagline Badge */}
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-vine-sage/20 border border-vine-sage/35 text-vine-sage text-xs font-semibold font-mono tracking-wider uppercase">
-              <Sparkles className="w-3.5 h-3.5" />
-              Cultivating Elite AI Teams
-            </motion.div>
 
             {/* Display Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.08] drop-shadow-sm"
+              className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#f7f7f7] leading-[1.08] drop-shadow-sm"
             >
-              The Intelligent <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-vine-sage to-grape-light relative">
-                AI Talent Vine
+              Where AI Talent <br />
+              Takes Root and <br />
+              <span className="text-[#2078cf] relative">
+                Innovation Grows
               </span>
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-white/80 max-w-2xl leading-relaxed"
+              className="text-lg sm:text-xl text-[#f7f7f7] max-w-2xl leading-relaxed"
             >
-              We vet, nurture, and connect outstanding Artificial Intelligence talent with forward-thinking enterprises. Scale your engineering seamlessly across the USA and India.
+              AI VINE connects exceptional AI professionals with ambitious organizations, creating a thriving ecosystem where talent, technology, and opportunity grow together.
             </motion.p>
 
             {/* CTA buttons */}
@@ -91,44 +86,26 @@ export default function Home() {
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 pt-4"
             >
               <Link
-                href="/talent"
-                className="w-full sm:w-auto px-8 py-4 bg-vine-sage text-vine-forest font-semibold rounded-vine hover:bg-vine-sage/90 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group"
+                href="/hire"
+                className="w-full sm:w-auto px-8 py-4 bg-vine-green text-white font-semibold rounded-vine hover:bg-vine-green/90 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
               >
-                Browse Talent Pool
+                Hire AI Talent
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/hire"
-                className="w-full sm:w-auto px-8 py-4 border border-white/30 bg-white/10 text-white font-medium rounded-vine hover:border-white hover:bg-white/20 transition-all duration-300 flex items-center justify-center"
+                href="/join"
+                className="w-full sm:w-auto px-8 py-4 border border-[#f7f7f7]/30 text-[#f7f7f7] font-medium rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
               >
-                Hire AI Developers
+                Join the Network
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
-            </motion.div>
-
-            {/* Stats Summary & Locations */}
-            <motion.div
-              variants={itemVariants}
-              className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-12 border-t border-white/20 max-w-3xl mr-auto"
-            >
-              <div className="text-left py-2 pr-4">
-                <p className="font-display text-3xl font-bold text-vine-sage">100%</p>
-                <p className="text-xs font-mono uppercase tracking-wider text-white/70 mt-1">Pre-Vetted Technical Skills</p>
-              </div>
-              <div className="text-left py-2 pr-4">
-                <p className="font-display text-3xl font-bold text-grape-light">48h</p>
-                <p className="text-xs font-mono uppercase tracking-wider text-white/70 mt-1">Average Match Time</p>
-              </div>
-              <div className="text-left col-span-2 md:col-span-1 py-2 pr-4">
-                <p className="font-display text-3xl font-bold text-white">Dual-Shore</p>
-                <p className="text-xs font-mono uppercase tracking-wider text-white/70 mt-1">San Francisco & Hyderabad</p>
-              </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* 2. What We Do Section */}
-      <section className="py-24 bg-root-cream relative border-y border-vine-green/10">
+      <section className="py-24 bg-transparent relative border-y border-vine-green/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <h2 className="font-mono text-xs font-bold tracking-widest text-vine-green uppercase">
@@ -144,50 +121,50 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1: IT Staffing */}
-            <div className="bg-white rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-card rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="w-12 h-12 rounded-vine bg-vine-green/10 flex items-center justify-center text-vine-green group-hover:scale-110 transition-transform">
                   <Users className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-vine-forest">AI & IT Staffing</h3>
+                <h3 className="font-display text-xl font-bold text-vine-forest">🌿 AI Staffing</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Augment your teams with elite AI, ML, Data, and Cloud engineering professionals. Contract, full-time, or contract-to-hire engagement models built around your constraints.
+                  We source, screen, and place ML Engineers, Data Scientists, AI Product Managers, and more — on contract or full-time.
                 </p>
               </div>
               <Link href="/hire" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:underline">
-                Hire Talent <ChevronRight className="w-4 h-4" />
+                Find the right AI talent, fast <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Card 2: Enterprise Solutions */}
-            <div className="bg-white rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-card rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
               <div className="space-y-6">
-                <div className="w-12 h-12 rounded-vine bg-grape-indigo/10 flex items-center justify-center text-grape-indigo group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-vine bg-vine-green/10 flex items-center justify-center text-vine-green group-hover:scale-110 transition-transform">
                   <Cpu className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-vine-forest">Enterprise AI Solutions</h3>
+                <h3 className="font-display text-xl font-bold text-vine-forest">🌿 AI Services</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  We deploy systems. From LLM fine-tuning and retrieval-augmented generation (RAG) pipelines to custom MLOps orchestration, we deliver ready-to-run systems.
+                  From strategy to deployment, our AI consultants help you integrate intelligence into your core operations.
                 </p>
               </div>
-              <Link href="/services" className="mt-8 flex items-center gap-1 text-sm font-semibold text-grape-indigo group-hover:underline">
-                Explore Services <ChevronRight className="w-4 h-4" />
+              <Link href="/services" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:underline">
+                Build smarter with AI <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Card 3: Academy */}
-            <div className="bg-white rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+            <div className="bg-card rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
               <div className="space-y-6">
                 <div className="w-12 h-12 rounded-vine bg-harvest-gold/10 flex items-center justify-center text-harvest-gold group-hover:scale-110 transition-transform">
                   <GraduationCap className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-vine-forest">AI Placement & Training</h3>
+                <h3 className="font-display text-xl font-bold text-vine-forest">🌿 AI Training</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Nurturing the next generation of engineers. Our specialized curricula train graduates and professionals on production-grade machine learning pipelines, ensuring they are placement-ready.
+                  Structured programs for students, professionals, and corporate teams to master AI tools and frameworks.
                 </p>
               </div>
               <Link href="/training" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:underline">
-                Learn Academy <ChevronRight className="w-4 h-4" />
+                Grow the next generation <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -201,7 +178,7 @@ export default function Home() {
             {/* Text details */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <span className="font-mono text-xs font-bold tracking-widest text-grape-indigo uppercase">Why AI VINE</span>
+                <span className="font-mono text-xs font-bold tracking-widest text-vine-green uppercase">Why AI VINE</span>
                 <h2 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest leading-tight">
                   Organic Connections. Accelerated Scale.
                 </h2>
@@ -213,21 +190,21 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex gap-4">
                   <div className="w-10 h-10 rounded-full bg-vine-green/10 flex items-center justify-center text-vine-green shrink-0">
-                    <ShieldCheck className="w-5 h-5" />
+                    <Users className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">Deeply Vetted</h4>
-                    <p className="text-xs text-muted-foreground mt-1">Every candidate passes a hands-on technical validation covering theory and pipeline setup.</p>
+                    <h4 className="font-bold text-vine-forest text-sm">Active Network</h4>
+                    <p className="text-xs text-muted-foreground mt-1">500+ AI professionals in our active talent network ready for deployment.</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-grape-indigo/10 flex items-center justify-center text-grape-indigo shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-vine-green/10 flex items-center justify-center text-vine-green shrink-0">
                     <Globe2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">Dual-Shore Support</h4>
-                    <p className="text-xs text-muted-foreground mt-1">Operate with native representatives in San Francisco, alongside direct pipelines in Hyderabad.</p>
+                    <h4 className="font-bold text-vine-forest text-sm">Proven Placements</h4>
+                    <p className="text-xs text-muted-foreground mt-1">Proven placements and operations across USA.</p>
                   </div>
                 </div>
 
@@ -236,18 +213,18 @@ export default function Home() {
                     <Zap className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">Frictionless Hiring</h4>
-                    <p className="text-xs text-muted-foreground mt-1">Direct scheduling, standard contract structures, and transparent payroll channels.</p>
+                    <h4 className="font-bold text-vine-forest text-sm">7-Day Hiring</h4>
+                    <p className="text-xs text-muted-foreground mt-1">Average time-to-hire of just 7 business days for vetted candidates.</p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-harvest-gold/10 flex items-center justify-center text-vine-forest shrink-0">
-                    <TrendingUp className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-full bg-vine-green/10 flex items-center justify-center text-vine-green shrink-0">
+                    <Cpu className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">Growth Metaphor</h4>
-                    <p className="text-xs text-muted-foreground mt-1">We maintain long-term placement mentoring to ensure candidate growth matches company scale.</p>
+                    <h4 className="font-bold text-vine-forest text-sm">Key Roles Filled</h4>
+                    <p className="text-xs text-muted-foreground mt-1">ML Engineers, NLP Specialists, AI PMs, Data Engineers, LLM Devs, CV Engineers, AI Trainers.</p>
                   </div>
                 </div>
               </div>
@@ -255,10 +232,10 @@ export default function Home() {
 
             {/* Design Box */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-vine-green/20 to-grape-indigo/20 rounded-card blur-2xl transform rotate-3" />
-              <div className="relative bg-white rounded-card p-8 border border-vine-green/10 shadow-lg space-y-6">
+              <div className="absolute inset-0 bg-gradient-to-tr from-vine-green/20 to-vine-green/5 rounded-card blur-2xl transform rotate-3" />
+              <div className="relative bg-card rounded-card p-8 border border-vine-green/10 shadow-lg space-y-6">
                 <div className="flex justify-between items-center pb-4 border-b border-muted">
-                  <span className="font-mono text-xs font-semibold text-grape-indigo">TALENT MAP: HYDERABAD &bull; SF</span>
+                  <span className="font-mono text-xs font-semibold text-vine-green">TALENT MAP: USA &bull; SF</span>
                   <div className="flex gap-1">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
                     <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
@@ -272,9 +249,9 @@ export default function Home() {
                     <span className="inline-block bg-vine-green text-root-cream text-[10px] font-mono px-2 py-0.5 rounded mt-2">PLACED IN 3 DAYS</span>
                   </div>
                   <div className="p-4 rounded-vine bg-root-cream/50 border border-vine-green/5">
-                    <p className="text-xs font-mono text-grape-indigo font-bold">HYDERABAD DEVELOPMENT HUB</p>
+                    <p className="text-xs font-mono text-vine-green font-bold">WEST COAST DEVELOPMENT HUB</p>
                     <p className="text-sm font-semibold text-vine-forest mt-1">Custom LLM Fine-Tuning - 4 ML Engineers</p>
-                    <span className="inline-block bg-grape-indigo text-white text-[10px] font-mono px-2 py-0.5 rounded mt-2">TEAM DEPLOYED</span>
+                    <span className="inline-block bg-vine-sage text-white text-[10px] font-mono px-2 py-0.5 rounded mt-2">TEAM DEPLOYED</span>
                   </div>
                 </div>
               </div>
@@ -284,7 +261,7 @@ export default function Home() {
       </section>
 
       {/* 4. How It Works Section */}
-      <section className="py-24 bg-root-cream border-t border-vine-green/10">
+      <section className="py-24 bg-transparent border-t border-vine-green/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="font-mono text-xs font-bold tracking-widest text-vine-green uppercase">Process Workflow</span>
@@ -298,7 +275,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Path A: For Companies */}
-            <div className="bg-white rounded-card p-8 border border-vine-green/5 shadow-sm space-y-8">
+            <div className="bg-card rounded-card p-8 border border-vine-green/5 shadow-sm space-y-8">
               <h3 className="font-display text-2xl font-bold text-vine-green border-b border-muted pb-4 flex items-center gap-2">
                 <span className="text-xs font-mono bg-vine-green text-root-cream px-2 py-1 rounded-full">For Companies</span>
                 Hiring Pre-Vetted Talent
@@ -330,9 +307,9 @@ export default function Home() {
             </div>
 
             {/* Path B: For Candidates */}
-            <div className="bg-white rounded-card p-8 border border-vine-green/5 shadow-sm space-y-8">
-              <h3 className="font-display text-2xl font-bold text-grape-indigo border-b border-muted pb-4 flex items-center gap-2">
-                <span className="text-xs font-mono bg-grape-indigo text-white px-2 py-1 rounded-full">For Candidates</span>
+            <div className="bg-card rounded-card p-8 border border-vine-green/5 shadow-sm space-y-8">
+              <h3 className="font-display text-2xl font-bold text-vine-green border-b border-muted pb-4 flex items-center gap-2">
+                <span className="text-xs font-mono bg-vine-sage text-white px-2 py-1 rounded-full">For Candidates</span>
                 Joining & Training Paths
               </h3>
 
@@ -355,7 +332,7 @@ export default function Home() {
                   <span className="font-mono text-lg font-bold text-grape-light">03</span>
                   <div>
                     <h4 className="font-bold text-vine-forest text-base">Placement Matching</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Gain exposure to our premium USA and Indian clients, entering roles with pre-vetted trust signals.</p>
+                    <p className="text-sm text-muted-foreground mt-1">Gain exposure to our premium enterprise clients, entering roles with pre-vetted trust signals.</p>
                   </div>
                 </div>
               </div>
@@ -368,7 +345,7 @@ export default function Home() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="font-mono text-xs font-bold tracking-widest text-grape-indigo uppercase">Sectors Served</span>
+            <span className="font-mono text-xs font-bold tracking-widest text-vine-green uppercase">Sectors Served</span>
             <h2 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest">
               Engineered for Core Industries
             </h2>
@@ -377,36 +354,48 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="p-6 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-              <h4 className="font-display text-lg font-bold text-vine-forest">Finance & Fintech</h4>
-              <p className="text-xs text-muted-foreground mt-2">Fraud classification models, algorithmic risk analysis, predictive modeling pipelines.</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <h4 className="font-display text-sm font-bold text-vine-forest">Finance & Fintech</h4>
+              <p className="text-[11px] text-muted-foreground mt-2">Fraud classification models, algorithmic risk analysis, predictive modeling.</p>
             </div>
-            <div className="p-6 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-              <h4 className="font-display text-lg font-bold text-vine-forest">Healthcare</h4>
-              <p className="text-xs text-muted-foreground mt-2">Clinical NLP summaries, segmenting medical imaging data, HIPAA-compliant model training.</p>
+            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <h4 className="font-display text-sm font-bold text-vine-forest">Healthcare</h4>
+              <p className="text-[11px] text-muted-foreground mt-2">Clinical NLP summaries, segmenting medical imaging data, HIPAA-compliant training.</p>
             </div>
-            <div className="p-6 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-              <h4 className="font-display text-lg font-bold text-vine-forest">Autonomous Systems</h4>
-              <p className="text-xs text-muted-foreground mt-2">Real-time computer vision detection, ROS middleware setup, Edge AI optimizations.</p>
+            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <h4 className="font-display text-sm font-bold text-vine-forest">Retail & E-comm</h4>
+              <p className="text-[11px] text-muted-foreground mt-2">Recommendation engines, demand forecasting, visual search, inventory optimization.</p>
             </div>
-            <div className="p-6 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-white hover:shadow-lg transition-all duration-300">
-              <h4 className="font-display text-lg font-bold text-vine-forest">SaaS & Enterprise</h4>
-              <p className="text-xs text-muted-foreground mt-2">Generative agents, internal vector knowledge bases, conversational user interfaces.</p>
+            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <h4 className="font-display text-sm font-bold text-vine-forest">Manufacturing</h4>
+              <p className="text-[11px] text-muted-foreground mt-2">Predictive maintenance, quality inspection computer vision, supply chain optimization.</p>
+            </div>
+            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <h4 className="font-display text-sm font-bold text-vine-forest">Legal Tech</h4>
+              <p className="text-[11px] text-muted-foreground mt-2">Document summarization, semantic search, contract analytics, automated compliance.</p>
+            </div>
+            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <h4 className="font-display text-sm font-bold text-vine-forest">EdTech</h4>
+              <p className="text-[11px] text-muted-foreground mt-2">Personalized learning paths, automated grading assistance, conversational study buddies.</p>
+            </div>
+            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+              <h4 className="font-display text-sm font-bold text-vine-forest">SaaS</h4>
+              <p className="text-[11px] text-muted-foreground mt-2">Generative agents, internal vector knowledge bases, conversational user interfaces.</p>
             </div>
           </div>
 
           {/* Bottom Banner */}
-          <div className="mt-16 bg-vine-forest text-root-cream p-8 rounded-card border border-vine-green/20 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="mt-16 bg-grape-light text-vine-forest p-8 rounded-card border border-vine-green/20 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="space-y-2 text-center md:text-left z-10">
-              <h3 className="font-display text-2xl font-bold">Establish your AI Pipeline today</h3>
-              <p className="text-sm text-root-cream/70 max-w-xl">
+              <h3 className="font-display text-2xl font-bold text-white">Establish your AI Pipeline today</h3>
+              <p className="text-sm text-muted-foreground max-w-xl">
                 Partner with AI VINE to hire engineering teams or develop tailored AI modules. Reach out to schedule a consultation.
               </p>
             </div>
             <Link
               href="/contact"
-              className="w-full md:w-auto px-6 py-3 bg-vine-sage text-vine-forest font-semibold rounded-vine hover:bg-vine-sage/90 transition-colors z-10 text-center flex items-center justify-center gap-1.5 shrink-0"
+              className="w-full md:w-auto px-6 py-3 bg-vine-green hover:bg-vine-green/90 text-background font-semibold rounded-vine transition-colors z-10 text-center flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
             >
               Get in Touch <ArrowRight className="w-4 h-4" />
             </Link>

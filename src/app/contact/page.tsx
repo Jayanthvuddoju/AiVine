@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin, Globe, Building } from "lucide-react";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-root-mist pt-24 pb-16">
+    <div className="min-h-screen  pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Layout Grid */}
@@ -22,7 +22,7 @@ export default function ContactPage() {
                 Connect With AI VINE
               </h1>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Connect with our local representatives across our dual offices. We are active during both US Pacific and Indian Standard Time zones.
+                Connect with our team to explore staffing options, services, or joining as a candidate.
               </p>
             </div>
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               
               {/* USA Office */}
-              <div className="bg-white rounded-card p-6 border border-vine-green/10 space-y-3 shadow-sm">
+              <div className="bg-card rounded-card p-6 border border-vine-green/10 space-y-3 shadow-sm">
                 <h3 className="font-display text-lg font-bold text-vine-green flex items-center gap-2">
                   <span className="text-xs font-mono bg-vine-green text-root-cream px-2 py-0.5 rounded">US</span>
                   San Francisco Headquarters
@@ -47,28 +47,6 @@ export default function ContactPage() {
                   <p className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-vine-green shrink-0" />
                     <span className="font-mono">sf@aivine.ai</span>
-                  </p>
-                </div>
-              </div>
-
-              {/* Hyderabad Office */}
-              <div className="bg-white rounded-card p-6 border border-vine-green/10 space-y-3 shadow-sm">
-                <h3 className="font-display text-lg font-bold text-grape-indigo flex items-center gap-2">
-                  <span className="text-xs font-mono bg-grape-indigo text-white px-2 py-0.5 rounded">IN</span>
-                  Hyderabad Delivery Center
-                </h3>
-                <div className="space-y-2 text-xs text-muted-foreground">
-                  <p className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 text-grape-indigo shrink-0 mt-0.5" />
-                    <span>HITEC City, Phase 2, Madhapur, Hyderabad, TS 500081</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Phone className="w-4 h-4 text-grape-indigo shrink-0" />
-                    <span>+91 40 5550 9199</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-grape-indigo shrink-0" />
-                    <span className="font-mono">hyd@aivine.ai</span>
                   </p>
                 </div>
               </div>

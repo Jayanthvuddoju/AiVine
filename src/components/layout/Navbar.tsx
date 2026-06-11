@@ -39,7 +39,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
         scrolled
-          ? "bg-white/80 dark:bg-vine-forest/80 backdrop-blur-md border-border/85 py-3 shadow-sm"
+          ? "bg-root-cream/85 backdrop-blur-md border-border/30 py-3 shadow-sm"
           : "bg-transparent border-transparent py-5"
       )}
     >
@@ -51,11 +51,11 @@ export default function Navbar() {
               <Sprout className="w-6 h-6 text-root-cream" />
             </div>
             <div>
-              <span className="font-display text-xl font-bold tracking-tight text-vine-green dark:text-vine-sage">
+              <span className="font-display text-xl font-bold tracking-tight text-vine-green">
                 AI VINE
               </span>
-              <p className="text-[10px] tracking-widest text-grape-indigo dark:text-grape-light font-mono leading-none mt-0.5">
-                USA &bull; INDIA
+              <p className="text-[10px] tracking-widest text-muted-foreground font-mono leading-none mt-0.5">
+                USA
               </p>
             </div>
           </Link>
@@ -92,7 +92,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/join"
-              className="px-4 py-2 text-sm font-medium border border-vine-green/30 rounded-vine hover:border-vine-green hover:bg-vine-green/5 text-vine-green dark:text-vine-sage transition-all duration-300"
+              className="px-4 py-2 text-sm font-medium border border-[#f7f7f7]/30 rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 text-[#f7f7f7] transition-all duration-300"
             >
               Join Talent
             </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-border bg-white dark:bg-vine-forest shadow-lg overflow-hidden"
+            className="md:hidden border-t border-border bg-white dark:bg-root-cream shadow-lg overflow-hidden"
           >
             <div className="px-4 pt-4 pb-6 space-y-4">
               <nav className="flex flex-col gap-3">
@@ -154,7 +154,7 @@ export default function Navbar() {
                 <Link
                   href="/join"
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center py-2.5 px-4 text-sm font-medium border border-vine-green rounded-vine text-vine-green dark:text-vine-sage hover:bg-vine-green/5 transition-colors"
+                  className="w-full text-center py-2.5 px-4 text-sm font-medium border border-[#f7f7f7]/30 rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 text-[#f7f7f7] transition-colors"
                 >
                   Join Talent
                 </Link>

@@ -13,7 +13,7 @@ export default function BlogPostDetailPage() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-root-mist pt-32 pb-16 flex flex-col items-center justify-center text-center p-4">
+      <div className="min-h-screen  pt-32 pb-16 flex flex-col items-center justify-center text-center p-4">
         <h2 className="font-display text-2xl font-bold text-vine-forest">Article Not Found</h2>
         <p className="text-xs text-muted-foreground mt-2 mb-6">The article slug requested does not exist or has been moved.</p>
         <Link href="/blog" className="px-4 py-2 bg-vine-green text-root-cream text-xs font-semibold rounded-vine">
@@ -24,7 +24,7 @@ export default function BlogPostDetailPage() {
   }
 
   return (
-    <article className="min-h-screen bg-root-mist pt-24 pb-16">
+    <article className="min-h-screen  pt-24 pb-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mt-6">
         
         {/* Back Link */}
@@ -35,7 +35,7 @@ export default function BlogPostDetailPage() {
         {/* Article Meta */}
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono font-bold bg-grape-indigo/10 text-grape-indigo px-2.5 py-0.5 rounded uppercase">
+            <span className="text-[10px] font-mono font-bold bg-vine-green/10 text-vine-green px-2.5 py-0.5 rounded uppercase">
               {post.category}
             </span>
           </div>
@@ -72,7 +72,7 @@ export default function BlogPostDetailPage() {
             Deploying AI workloads at scale is not merely a software problem—it requires tight coordination between infrastructure configurations, data ingestion pipes, and mathematical model evaluations. Many projects fall into the trap of treating AI systems like standard REST services, ignoring the unique profiling demands of GPU allocations, vector space latency, and caching strategies.
           </p>
           <p>
-            At AI VINE, our teams work across our offices in San Francisco and Hyderabad to build, optimize, and scale these pipelines. By establishing pre-vetted assessments and direct technical screening, we ensure our clients skip recruitment friction and work immediately with developers who understand production environments.
+            At AI VINE, our teams work to build, optimize, and scale these pipelines. By establishing pre-vetted assessments and direct technical screening, we ensure our clients skip recruitment friction and work immediately with developers who understand production environments.
           </p>
           <p>
             In future posts, we will dive deeper into fine-tuning parameters, comparative analysis of vector index designs, and custom Kubernetes configurations for large-scale embeddings. Subscribe to our newsletter to receive technical breakdowns directly in your inbox.

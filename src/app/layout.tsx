@@ -8,8 +8,8 @@ import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "AI VINE | Enterprise AI Staffing, Training & IT Solutions",
-  description: "AI VINE connects top companies with pre-vetted AI, ML, Data, and NLP talent. Operating from USA and Hyderabad, India. Scaling teams, shaping intelligence.",
-  keywords: ["AI staffing", "machine learning staffing", "AI developers", "hire ML engineers", "AI training", "Hyderabad IT staffing", "US AI recruitment"],
+  description: "AI VINE connects top companies with pre-vetted AI, ML, Data, and NLP talent. Scaling teams, shaping intelligence.",
+  keywords: ["AI staffing", "machine learning staffing", "AI developers", "hire ML engineers", "AI training", "US AI recruitment"],
   openGraph: {
     title: "AI VINE | AI Staffing & IT Services",
     description: "Pre-vetted AI talent and elite IT services. Accelerating growth and scale for forward-thinking enterprises.",
@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className="h-full antialiased dark"
     >
-      <body className="min-h-full flex flex-col bg-root-mist text-vine-forest">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         <Navbar />
         <main className="flex-1">
           {children}

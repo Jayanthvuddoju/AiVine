@@ -77,19 +77,22 @@ export default function TalentPoolPage() {
   }, [filters]);
 
   return (
-    <div className="min-h-screen bg-root-mist pt-24 pb-16">
+    <div className="min-h-screen  pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Page Header */}
         <div className="space-y-4 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-grape-indigo/10 border border-grape-indigo/20 text-grape-indigo rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-vine-green/10 border border-vine-green/20 text-vine-green rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
             <Sparkles className="w-3 h-3" /> Anonymous Talent Pool
           </div>
           <h1 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest tracking-tight">
-            Explore Pre-Vetted AI Professionals
+            Explore Our AI Talent Pool
           </h1>
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Review live summaries of our active candidates. We enforce strict confidentiality: developer names, contacts, and portfolios are masked until you verify your corporate profile.
+            Browse pre-vetted AI professionals by role, skill set, and availability. Request a full profile to connect.
+          </p>
+          <p className="text-xs text-vine-green font-mono bg-vine-green/5 inline-block px-3 py-1.5 rounded border border-vine-green/10">
+            All profiles are anonymized. Candidate details shared only upon mutual interest.
           </p>
         </div>
 
@@ -123,8 +126,8 @@ export default function TalentPoolPage() {
           </div>
         ) : (
           /* Empty Search State */
-          <div className="bg-white rounded-card border border-vine-green/15 p-12 text-center max-w-md mx-auto space-y-4">
-            <div className="w-12 h-12 rounded-full bg-root-cream flex items-center justify-center text-muted-foreground mx-auto">
+          <div className="bg-card rounded-card border border-vine-green/15 p-12 text-center max-w-md mx-auto space-y-4">
+            <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-muted-foreground mx-auto">
               <SearchX className="w-6 h-6" />
             </div>
             <div className="space-y-1">

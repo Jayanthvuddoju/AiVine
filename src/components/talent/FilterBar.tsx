@@ -68,7 +68,7 @@ export default function FilterBar({ filters, onFilterChange, onReset }: FilterBa
   };
 
   return (
-    <div className="bg-white rounded-card border border-vine-green/15 shadow-sm p-5 space-y-4">
+    <div className="bg-card rounded-card border border-vine-green/15 shadow-sm p-5 space-y-4">
       {/* Search & Sliders */}
       <div className="flex flex-col md:flex-row gap-3">
         {/* Search Field */}

@@ -65,7 +65,7 @@ export default function HireTalentForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-white rounded-card border border-vine-green/20 p-8 text-center space-y-5 shadow-sm">
+      <div className="bg-card rounded-card border border-vine-green/20 p-8 text-center space-y-5 shadow-sm">
         <div className="w-12 h-12 bg-vine-green/10 text-vine-green rounded-full flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8" />
         </div>
@@ -88,7 +88,7 @@ export default function HireTalentForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-card border border-vine-green/15 p-6 sm:p-8 space-y-5 shadow-sm">
+    <form onSubmit={handleSubmit(onSubmit)} className="bg-card rounded-card border border-vine-green/15 p-6 sm:p-8 space-y-5 shadow-sm">
       <div className="space-y-1">
         <h3 className="font-display text-lg sm:text-xl font-bold text-vine-forest">
           Describe Your AI Staffing Needs
@@ -99,7 +99,7 @@ export default function HireTalentForm() {
       </div>
 
       {errorMsg && (
-        <div className="bg-red-50 text-red-700 border border-red-200 text-xs p-3 rounded-vine flex items-center gap-2">
+        <div className="bg-red-950/30 text-red-200 border border-red-900/50 text-xs p-3 rounded-vine flex items-center gap-2">
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{errorMsg}</span>
         </div>
@@ -202,7 +202,7 @@ export default function HireTalentForm() {
           rows={4}
           {...register("message")}
           className="w-full bg-root-mist/50 border border-border rounded-vine px-3 py-2 text-xs focus:outline-none focus:border-vine-green text-vine-forest resize-none"
-          placeholder="Describe the skills, project scope, timeline, and whether you require US-based or Hyderabad-based developers..."
+          placeholder="Describe the skills, project scope, timeline, and candidate requirements..."
         />
         {errors.message && (
           <p className="text-[10px] text-red-500 mt-1">{errors.message.message}</p>
