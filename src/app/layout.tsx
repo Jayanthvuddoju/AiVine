@@ -4,7 +4,7 @@ import "@fontsource/inter";
 import "@fontsource/jetbrains-mono";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { Footer } from "@/components/ui/footer-section";
 
 export const metadata: Metadata = {
   title: "AI VINE | Enterprise AI Staffing, Training & IT Solutions",
@@ -28,8 +28,12 @@ export default function RootLayout({
     <html
       lang="en"
       className="h-full antialiased dark"
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body 
+        className="min-h-full flex flex-col bg-background text-foreground"
+        suppressHydrationWarning
+      >
         <Navbar />
         <main className="flex-1">
           {children}

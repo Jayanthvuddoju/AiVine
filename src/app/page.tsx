@@ -15,6 +15,8 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
 
 export default function Home() {
   const containerVariants: Variants = {
@@ -22,6 +24,7 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
+        delayChildren: 3,
         staggerChildren: 0.15,
       },
     },
@@ -39,68 +42,72 @@ export default function Home() {
   return (
     <div className="overflow-hidden ">
       {/* 1. Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-12 pb-6 overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none min-h-screen">
-          <video
-            autoPlay
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-fill"
-          >
-            <source src="/HeroBg.mp4" type="video/mp4" />
-          </video>
-        </div>
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-black/[0.96]">
+        {/* Spotlight effect */}
+        <Spotlight
+          className="-top-40 left-0 md:left-20 md:-top-20"
+          fill="#4da6ff"
+        />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-left space-y-4 max-w-4xl mr-auto"
-          >
-
-            {/* Display Headline */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#f7f7f7] leading-[1.08] drop-shadow-sm"
-            >
-              Where AI Talent <br />
-              Takes Root and <br />
-              <span className="text-[#2078cf] relative">
-                Innovation Grows
-              </span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              variants={itemVariants}
-              className="text-lg sm:text-xl text-[#f7f7f7] max-w-2xl leading-relaxed"
-            >
-              AI VINE connects exceptional AI professionals with ambitious organizations, creating a thriving ecosystem where talent, technology, and opportunity grow together.
-            </motion.p>
-
-            {/* CTA buttons */}
+        <div className="flex w-full h-screen">
+          {/* Left — text content */}
+          <div className="flex-1 flex items-center px-8 sm:px-12 lg:px-20 relative z-10 pt-28">
             <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 pt-4"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-left space-y-4 max-w-xl"
             >
-              <Link
-                href="/hire"
-                className="w-full sm:w-auto px-8 py-4 bg-vine-green text-white font-semibold rounded-vine hover:bg-vine-green/90 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+              {/* Display Headline */}
+              <motion.h1
+                variants={itemVariants}
+                className="font-display text-4xl sm:text-5xl md:text-[4.125rem] font-bold tracking-tight text-[#f7f7f7] leading-[1.08] drop-shadow-sm"
               >
-                Hire AI Talent
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/join"
-                className="w-full sm:w-auto px-8 py-4 border border-[#f7f7f7]/30 text-[#f7f7f7] font-medium rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+                Where AI Talent <br />
+                Takes Root and <br />
+                <span className="text-[#2078cf] relative">
+                  Innovation Grows
+                </span>
+              </motion.h1>
+
+              {/* Subtitle */}
+              <motion.p
+                variants={itemVariants}
+                className="text-base sm:text-lg text-neutral-300 max-w-lg leading-relaxed"
               >
-                Join the Network
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+                AI VINE connects exceptional AI professionals with ambitious organizations, creating a thriving ecosystem where talent, technology, and opportunity grow together.
+              </motion.p>
+
+              {/* CTA buttons */}
+              <motion.div
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 pt-2"
+              >
+                <Link
+                  href="/hire"
+                  className="w-full sm:w-auto px-6 py-3 bg-vine-green text-white font-semibold rounded-vine hover:bg-vine-green/90 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer text-sm"
+                >
+                  Hire AI Talent
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  href="/join"
+                  className="w-full sm:w-auto px-6 py-3 border border-[#f7f7f7]/30 text-[#f7f7f7] font-medium rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/10 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer text-sm"
+                >
+                  Join the Network
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
+
+          {/* Right — Spline 3D Robot */}
+          <div className="flex-1 relative hidden md:block">
+            <SplineScene
+              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
         </div>
       </section>
 
@@ -121,49 +128,49 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1: IT Staffing */}
-            <div className="bg-card rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-              <div className="space-y-6">
-                <div className="w-12 h-12 rounded-vine bg-vine-green/10 flex items-center justify-center text-vine-green group-hover:scale-110 transition-transform">
+            <div className="liquid-glass p-8 flex flex-col justify-between group">
+              <div className="space-y-6 relative z-10">
+                <div className="w-12 h-12 liquid-glass-icon flex items-center justify-center text-vine-green group-hover:scale-110 transition-transform duration-300">
                   <Users className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-vine-forest">🌿 AI Staffing</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-display text-xl font-bold text-white/90">🌿 AI Staffing</h3>
+                <p className="text-sm text-white/50 leading-relaxed">
                   We source, screen, and place ML Engineers, Data Scientists, AI Product Managers, and more — on contract or full-time.
                 </p>
               </div>
-              <Link href="/hire" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:underline">
+              <Link href="/hire" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:gap-2 transition-all duration-300 relative z-10">
                 Find the right AI talent, fast <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Card 2: Enterprise Solutions */}
-            <div className="bg-card rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-              <div className="space-y-6">
-                <div className="w-12 h-12 rounded-vine bg-vine-green/10 flex items-center justify-center text-vine-green group-hover:scale-110 transition-transform">
+            <div className="liquid-glass p-8 flex flex-col justify-between group">
+              <div className="space-y-6 relative z-10">
+                <div className="w-12 h-12 liquid-glass-icon flex items-center justify-center text-vine-green group-hover:scale-110 transition-transform duration-300">
                   <Cpu className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-vine-forest">🌿 AI Services</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-display text-xl font-bold text-white/90">🌿 AI Services</h3>
+                <p className="text-sm text-white/50 leading-relaxed">
                   From strategy to deployment, our AI consultants help you integrate intelligence into your core operations.
                 </p>
               </div>
-              <Link href="/services" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:underline">
+              <Link href="/services" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:gap-2 transition-all duration-300 relative z-10">
                 Build smarter with AI <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Card 3: Academy */}
-            <div className="bg-card rounded-card p-8 border border-vine-green/5 hover:border-vine-green/20 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
-              <div className="space-y-6">
-                <div className="w-12 h-12 rounded-vine bg-harvest-gold/10 flex items-center justify-center text-harvest-gold group-hover:scale-110 transition-transform">
+            <div className="liquid-glass p-8 flex flex-col justify-between group">
+              <div className="space-y-6 relative z-10">
+                <div className="w-12 h-12 liquid-glass-icon flex items-center justify-center text-vine-green group-hover:scale-110 transition-transform duration-300">
                   <GraduationCap className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-vine-forest">🌿 AI Training</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-display text-xl font-bold text-white/90">🌿 AI Training</h3>
+                <p className="text-sm text-white/50 leading-relaxed">
                   Structured programs for students, professionals, and corporate teams to master AI tools and frameworks.
                 </p>
               </div>
-              <Link href="/training" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:underline">
+              <Link href="/training" className="mt-8 flex items-center gap-1 text-sm font-semibold text-vine-green group-hover:gap-2 transition-all duration-300 relative z-10">
                 Grow the next generation <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
@@ -233,8 +240,8 @@ export default function Home() {
             {/* Design Box */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-vine-green/20 to-vine-green/5 rounded-card blur-2xl transform rotate-3" />
-              <div className="relative bg-card rounded-card p-8 border border-vine-green/10 shadow-lg space-y-6">
-                <div className="flex justify-between items-center pb-4 border-b border-muted">
+              <div className="liquid-glass p-8 space-y-6">
+                <div className="flex justify-between items-center pb-4 border-b border-white/[0.1] relative z-10">
                   <span className="font-mono text-xs font-semibold text-vine-green">TALENT MAP: USA &bull; SF</span>
                   <div className="flex gap-1">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
@@ -242,15 +249,15 @@ export default function Home() {
                     <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div className="p-4 rounded-vine bg-root-cream/50 border border-vine-green/5">
+                <div className="space-y-4 relative z-10">
+                  <div className="p-4 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/[0.08]">
                     <p className="text-xs font-mono text-vine-green font-bold">USA VENTURE PLACEMENTS</p>
-                    <p className="text-sm font-semibold text-vine-forest mt-1">Senior MLOps Team - Fintech Scaleup</p>
-                    <span className="inline-block bg-vine-green text-root-cream text-[10px] font-mono px-2 py-0.5 rounded mt-2">PLACED IN 3 DAYS</span>
+                    <p className="text-sm font-semibold text-white/90 mt-1">Senior MLOps Team - Fintech Scaleup</p>
+                    <span className="inline-block bg-vine-green text-white text-[10px] font-mono px-2 py-0.5 rounded mt-2">PLACED IN 3 DAYS</span>
                   </div>
-                  <div className="p-4 rounded-vine bg-root-cream/50 border border-vine-green/5">
+                  <div className="p-4 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/[0.08]">
                     <p className="text-xs font-mono text-vine-green font-bold">WEST COAST DEVELOPMENT HUB</p>
-                    <p className="text-sm font-semibold text-vine-forest mt-1">Custom LLM Fine-Tuning - 4 ML Engineers</p>
+                    <p className="text-sm font-semibold text-white/90 mt-1">Custom LLM Fine-Tuning - 4 ML Engineers</p>
                     <span className="inline-block bg-vine-sage text-white text-[10px] font-mono px-2 py-0.5 rounded mt-2">TEAM DEPLOYED</span>
                   </div>
                 </div>
@@ -275,64 +282,72 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Path A: For Companies */}
-            <div className="bg-card rounded-card p-8 border border-vine-green/5 shadow-sm space-y-8">
-              <h3 className="font-display text-2xl font-bold text-vine-green border-b border-muted pb-4 flex items-center gap-2">
-                <span className="text-xs font-mono bg-vine-green text-root-cream px-2 py-1 rounded-full">For Companies</span>
-                Hiring Pre-Vetted Talent
-              </h3>
+            <div className="bg-[#010a1f] rounded-card p-8 border border-vine-green/40 relative overflow-hidden shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] transition-all duration-500">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(32,120,207,0.4)_0%,transparent_60%)] animate-pulse pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10 space-y-8">
+                <h3 className="font-display text-2xl font-bold text-white border-b border-white/10 pb-4 flex items-center gap-2 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                  <span className="text-xs font-mono bg-vine-green text-root-cream px-2 py-1 rounded-full">For Companies</span>
+                  Hiring Pre-Vetted Talent
+                </h3>
 
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <span className="font-mono text-lg font-bold text-vine-sage">01</span>
-                  <div>
-                    <h4 className="font-bold text-vine-forest text-base">Explore & Filter</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Browse our real-time [Anonymous Talent Pool](/talent) to select matching skillsets without initial filters.</p>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <span className="font-mono text-lg font-bold text-vine-green drop-shadow-[0_0_8px_rgba(32,120,207,0.8)]">01</span>
+                    <div>
+                      <h4 className="font-bold text-white text-base drop-shadow-sm">Explore & Filter</h4>
+                      <p className="text-sm text-white/70 mt-1">Browse our real-time [Anonymous Talent Pool](/talent) to select matching skillsets without initial filters.</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="font-mono text-lg font-bold text-vine-sage">02</span>
-                  <div>
-                    <h4 className="font-bold text-vine-forest text-base">Request Full Profiles</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Submit vendor details to unlock unmasked resumes, candidate portfolio histories, and vetted test transcripts.</p>
+                  <div className="flex gap-4">
+                    <span className="font-mono text-lg font-bold text-vine-green drop-shadow-[0_0_8px_rgba(32,120,207,0.8)]">02</span>
+                    <div>
+                      <h4 className="font-bold text-white text-base drop-shadow-sm">Request Full Profiles</h4>
+                      <p className="text-sm text-white/70 mt-1">Submit vendor details to unlock unmasked resumes, candidate portfolio histories, and vetted test transcripts.</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="font-mono text-lg font-bold text-vine-sage">03</span>
-                  <div>
-                    <h4 className="font-bold text-vine-forest text-base">Interview & Deploy</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Run direct scheduling loops. Finalize contracts with transparent, managed employment channels.</p>
+                  <div className="flex gap-4">
+                    <span className="font-mono text-lg font-bold text-vine-green drop-shadow-[0_0_8px_rgba(32,120,207,0.8)]">03</span>
+                    <div>
+                      <h4 className="font-bold text-white text-base drop-shadow-sm">Interview & Deploy</h4>
+                      <p className="text-sm text-white/70 mt-1">Run direct scheduling loops. Finalize contracts with transparent, managed employment channels.</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Path B: For Candidates */}
-            <div className="bg-card rounded-card p-8 border border-vine-green/5 shadow-sm space-y-8">
-              <h3 className="font-display text-2xl font-bold text-vine-green border-b border-muted pb-4 flex items-center gap-2">
-                <span className="text-xs font-mono bg-vine-sage text-white px-2 py-1 rounded-full">For Candidates</span>
-                Joining & Training Paths
-              </h3>
+            <div className="bg-[#010a1f] rounded-card p-8 border border-vine-green/40 relative overflow-hidden shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] transition-all duration-500">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(32,120,207,0.4)_0%,transparent_60%)] animate-pulse pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10 space-y-8">
+                <h3 className="font-display text-2xl font-bold text-white border-b border-white/10 pb-4 flex items-center gap-2 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                  <span className="text-xs font-mono bg-vine-sage text-white px-2 py-1 rounded-full">For Candidates</span>
+                  Joining & Training Paths
+                </h3>
 
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <span className="font-mono text-lg font-bold text-grape-light">01</span>
-                  <div>
-                    <h4 className="font-bold text-vine-forest text-base">Apply & Assess</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Submit your profile via [Join Talent](/join) and complete our standard technical evaluation scripts.</p>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <span className="font-mono text-lg font-bold text-vine-sage drop-shadow-[0_0_8px_rgba(14,78,178,0.8)]">01</span>
+                    <div>
+                      <h4 className="font-bold text-white text-base drop-shadow-sm">Apply & Assess</h4>
+                      <p className="text-sm text-white/70 mt-1">Submit your profile via [Join Talent](/join) and complete our standard technical evaluation scripts.</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="font-mono text-lg font-bold text-grape-light">02</span>
-                  <div>
-                    <h4 className="font-bold text-vine-forest text-base">Train & Polish</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Join our specialized [AI Academy](/training) to bridge gaps in pipeline scaling and deep learning production design.</p>
+                  <div className="flex gap-4">
+                    <span className="font-mono text-lg font-bold text-vine-sage drop-shadow-[0_0_8px_rgba(14,78,178,0.8)]">02</span>
+                    <div>
+                      <h4 className="font-bold text-white text-base drop-shadow-sm">Train & Polish</h4>
+                      <p className="text-sm text-white/70 mt-1">Join our specialized [AI Academy](/training) to bridge gaps in pipeline scaling and deep learning production design.</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="font-mono text-lg font-bold text-grape-light">03</span>
-                  <div>
-                    <h4 className="font-bold text-vine-forest text-base">Placement Matching</h4>
-                    <p className="text-sm text-muted-foreground mt-1">Gain exposure to our premium enterprise clients, entering roles with pre-vetted trust signals.</p>
+                  <div className="flex gap-4">
+                    <span className="font-mono text-lg font-bold text-vine-sage drop-shadow-[0_0_8px_rgba(14,78,178,0.8)]">03</span>
+                    <div>
+                      <h4 className="font-bold text-white text-base drop-shadow-sm">Placement Matching</h4>
+                      <p className="text-sm text-white/70 mt-1">Gain exposure to our premium enterprise clients, entering roles with pre-vetted trust signals.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -355,41 +370,58 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <h4 className="font-display text-sm font-bold text-vine-forest">Finance & Fintech</h4>
-              <p className="text-[11px] text-muted-foreground mt-2">Fraud classification models, algorithmic risk analysis, predictive modeling.</p>
+            <div className="liquid-glass p-4 flex flex-col justify-between group">
+              <div className="relative z-10">
+                <h4 className="font-display text-sm font-bold text-white/90">Finance & Fintech</h4>
+                <p className="text-[11px] text-white/50 mt-2">Fraud classification models, algorithmic risk analysis, predictive modeling.</p>
+              </div>
             </div>
-            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <h4 className="font-display text-sm font-bold text-vine-forest">Healthcare</h4>
-              <p className="text-[11px] text-muted-foreground mt-2">Clinical NLP summaries, segmenting medical imaging data, HIPAA-compliant training.</p>
+            <div className="liquid-glass p-4 flex flex-col justify-between group">
+              <div className="relative z-10">
+                <h4 className="font-display text-sm font-bold text-white/90">Healthcare</h4>
+                <p className="text-[11px] text-white/50 mt-2">Clinical NLP summaries, segmenting medical imaging data, HIPAA-compliant training.</p>
+              </div>
             </div>
-            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <h4 className="font-display text-sm font-bold text-vine-forest">Retail & E-comm</h4>
-              <p className="text-[11px] text-muted-foreground mt-2">Recommendation engines, demand forecasting, visual search, inventory optimization.</p>
+            <div className="liquid-glass p-4 flex flex-col justify-between group">
+              <div className="relative z-10">
+                <h4 className="font-display text-sm font-bold text-white/90">Retail & E-comm</h4>
+                <p className="text-[11px] text-white/50 mt-2">Recommendation engines, demand forecasting, visual search, inventory optimization.</p>
+              </div>
             </div>
-            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <h4 className="font-display text-sm font-bold text-vine-forest">Manufacturing</h4>
-              <p className="text-[11px] text-muted-foreground mt-2">Predictive maintenance, quality inspection computer vision, supply chain optimization.</p>
+            <div className="liquid-glass p-4 flex flex-col justify-between group">
+              <div className="relative z-10">
+                <h4 className="font-display text-sm font-bold text-white/90">Manufacturing</h4>
+                <p className="text-[11px] text-white/50 mt-2">Predictive maintenance, quality inspection computer vision, supply chain optimization.</p>
+              </div>
             </div>
-            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <h4 className="font-display text-sm font-bold text-vine-forest">Legal Tech</h4>
-              <p className="text-[11px] text-muted-foreground mt-2">Document summarization, semantic search, contract analytics, automated compliance.</p>
+            <div className="liquid-glass p-4 flex flex-col justify-between group">
+              <div className="relative z-10">
+                <h4 className="font-display text-sm font-bold text-white/90">Legal Tech</h4>
+                <p className="text-[11px] text-white/50 mt-2">Document summarization, semantic search, contract analytics, automated compliance.</p>
+              </div>
             </div>
-            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <h4 className="font-display text-sm font-bold text-vine-forest">EdTech</h4>
-              <p className="text-[11px] text-muted-foreground mt-2">Personalized learning paths, automated grading assistance, conversational study buddies.</p>
+            <div className="liquid-glass p-4 flex flex-col justify-between group">
+              <div className="relative z-10">
+                <h4 className="font-display text-sm font-bold text-white/90">EdTech</h4>
+                <p className="text-[11px] text-white/50 mt-2">Personalized learning paths, automated grading assistance, conversational study buddies.</p>
+              </div>
             </div>
-            <div className="p-4 rounded-card border border-vine-green/5 bg-root-cream/30 hover:bg-card hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
-              <h4 className="font-display text-sm font-bold text-vine-forest">SaaS</h4>
-              <p className="text-[11px] text-muted-foreground mt-2">Generative agents, internal vector knowledge bases, conversational user interfaces.</p>
+            <div className="liquid-glass p-4 flex flex-col justify-between group">
+              <div className="relative z-10">
+                <h4 className="font-display text-sm font-bold text-white/90">SaaS</h4>
+                <p className="text-[11px] text-white/50 mt-2">Generative agents, internal vector knowledge bases, conversational user interfaces.</p>
+              </div>
             </div>
           </div>
 
           {/* Bottom Banner */}
-          <div className="mt-16 bg-grape-light text-vine-forest p-8 rounded-card border border-vine-green/20 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="space-y-2 text-center md:text-left z-10">
-              <h3 className="font-display text-2xl font-bold text-white">Establish your AI Pipeline today</h3>
-              <p className="text-sm text-muted-foreground max-w-xl">
+          <div className="mt-16 bg-[#010a1f] text-vine-forest p-8 rounded-card border border-vine-green/40 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8 shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] transition-all duration-500">
+            {/* Glowing Core Background */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(32,120,207,0.4)_0%,transparent_60%)] animate-pulse pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="space-y-2 text-center md:text-left z-10 relative">
+              <h3 className="font-display text-2xl font-bold text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">Establish your AI Pipeline today</h3>
+              <p className="text-sm text-white/70 max-w-xl">
                 Partner with AI VINE to hire engineering teams or develop tailored AI modules. Reach out to schedule a consultation.
               </p>
             </div>

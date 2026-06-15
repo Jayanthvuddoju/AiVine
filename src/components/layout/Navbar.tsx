@@ -72,10 +72,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-vine-green relative py-1",
+                    "text-sm font-medium transition-all duration-300 relative py-1",
                     isActive
-                      ? "text-vine-green font-semibold"
-                      : "text-muted-foreground"
+                      ? "text-vine-green drop-shadow-[0_0_12px_rgba(32,120,207,1)] font-semibold"
+                      : "text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] hover:text-white hover:drop-shadow-[0_0_15px_rgba(255,255,255,1)]"
                   )}
                 >
                   {link.name}
@@ -95,13 +95,13 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/join"
-              className="px-4 py-2 text-sm font-medium border border-[#f7f7f7]/30 rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 text-[#f7f7f7] transition-all duration-300"
+              className="px-4 py-2 text-sm font-medium border border-[#f7f7f7]/30 rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] text-[#f7f7f7] transition-all duration-300"
             >
               Join Talent
             </Link>
             <Link
               href="/hire"
-              className="px-4 py-2 text-sm font-medium bg-vine-green hover:bg-vine-green/90 text-white rounded-vine flex items-center gap-1.5 transition-all duration-300 hover:shadow-md"
+              className="px-4 py-2 text-sm font-medium bg-vine-green hover:bg-vine-green/90 text-white rounded-vine flex items-center gap-1.5 transition-all duration-300 shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
             >
               Hire Talent <ArrowRight className="w-4 h-4" />
             </Link>
