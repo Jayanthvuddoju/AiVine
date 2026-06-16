@@ -8,8 +8,8 @@ import { Menu, X, ArrowRight, Sprout } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Services", href: "/services" },
-  { name: "Training", href: "/training" },
+  { name: "Hire", href: "/hire" },
+  { name: "Join", href: "/join" },
   { name: "Talent Pool", href: "/talent" },
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },

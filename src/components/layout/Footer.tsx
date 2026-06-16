@@ -97,11 +97,6 @@ export default function Footer() {
                   Hire Vetted Developers
                 </Link>
               </li>
-              <li>
-                <Link href="/services" className="hover:text-vine-green transition-colors">
-                  AI Integration Services
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -114,11 +109,6 @@ export default function Footer() {
               <li>
                 <Link href="/join" className="hover:text-vine-green transition-colors">
                   Submit Profile
-                </Link>
-              </li>
-              <li>
-                <Link href="/training" className="hover:text-vine-green transition-colors">
-                  AI Placements & Training
                 </Link>
               </li>
               <li>
