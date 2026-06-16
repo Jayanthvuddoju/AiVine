@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { SplineScene } from "@/components/ui/splite";
 import { Spotlight } from "@/components/ui/spotlight";
+import Lightfall from "@/components/ui/Lightfall";
 
 export default function Home() {
   const containerVariants: Variants = {
@@ -40,9 +41,30 @@ export default function Home() {
   };
 
   return (
-    <div className="overflow-hidden ">
+    <div className="overflow-hidden">
+      {/* Global Lightfall Background - Hidden behind Hero because Hero has solid background */}
+      <div className="fixed inset-0 z-0 pointer-events-auto opacity-40">
+        <Lightfall
+          colors={['#6567b3', '#ffffff', '#15164f']}
+          backgroundColor="#000208"
+          speed={0.4}
+          streakCount={6}
+          streakWidth={0.3}
+          streakLength={1.5}
+          glow={0.7}
+          density={0.3}
+          twinkle={1}
+          zoom={3}
+          backgroundGlow={0.5}
+          opacity={1}
+          mouseInteraction={true}
+          mouseStrength={0.5}
+          mouseRadius={0.75}
+        />
+      </div>
+
       {/* 1. Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-black/[0.96]">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#000208] z-10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
         {/* Spotlight effect */}
         <Spotlight
           className="-top-40 left-0 md:left-20 md:-top-20"
@@ -112,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* 2. What We Do Section */}
-      <section className="py-24 bg-transparent relative border-y border-vine-green/10">
+      <section className="py-24 bg-transparent relative z-10 border-y border-vine-green/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -124,7 +146,7 @@ export default function Home() {
             {/* Ambient Glow */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(32,120,207,0.15)_0%,transparent_70%)] blur-2xl -z-10" />
             
-            <div className="text-center space-y-8 liquid-glass p-8 md:p-14 rounded-[2.5rem] border border-white/5 relative overflow-hidden group hover:border-vine-green/30 transition-colors duration-500 shadow-[0_0_40px_-20px_rgba(32,120,207,0.3)]">
+            <div className="text-center space-y-8 heavy-frost-glass p-8 md:p-14 border border-white/10 relative group hover:border-vine-green/30 transition-colors duration-500 shadow-[0_0_40px_-20px_rgba(32,120,207,0.3)]">
               {/* Top gradient highlight */}
               <div className="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-vine-green to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
               
@@ -149,14 +171,14 @@ export default function Home() {
       </section>
 
       {/* 3. How It Works Section */}
-      <section className="py-24 bg-transparent border-t border-vine-green/10">
+      <section className="py-24 bg-transparent relative z-10 border-t border-vine-green/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="font-mono text-xs font-bold tracking-widest text-vine-green uppercase">Process Workflow</span>
-            <h2 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest">
+            <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
               Two Paths, One Vine
             </h2>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-white/80 text-sm">
               We streamline recruitment workflows for vendors, while nurturing career opportunities for talent.
             </p>
           </div>
@@ -252,17 +274,17 @@ export default function Home() {
       </section>
 
       {/* 4. Why AI VINE Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Text details */}
             <div className="space-y-8">
               <div className="space-y-4">
                 <span className="font-mono text-xs font-bold tracking-widest text-vine-green uppercase">Why AI VINE</span>
-                <h2 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest leading-tight">
+                <h2 className="font-display text-3xl sm:text-5xl font-bold text-white leading-tight">
                   Organic Connections. Accelerated Scale.
                 </h2>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                   {"Like a vine, AI VINE thrives on integration, growth, and structural strength. We don't just search keyword match lists. We evaluate our candidate pool technically through rigorous assessments, ensuring you bypass filters and secure top talent."}
                 </p>
               </div>
@@ -273,8 +295,8 @@ export default function Home() {
                     <Users className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">Active Network</h4>
-                    <p className="text-xs text-muted-foreground mt-1">500+ AI professionals in our active talent network ready for deployment.</p>
+                    <h4 className="font-bold text-white text-sm">Active Network</h4>
+                    <p className="text-xs text-white/70 mt-1">500+ AI professionals in our active talent network ready for deployment.</p>
                   </div>
                 </div>
 
@@ -283,8 +305,8 @@ export default function Home() {
                     <Globe2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">Proven Placements</h4>
-                    <p className="text-xs text-muted-foreground mt-1">Proven placements and operations across USA.</p>
+                    <h4 className="font-bold text-white text-sm">Proven Placements</h4>
+                    <p className="text-xs text-white/70 mt-1">Proven placements and operations across USA.</p>
                   </div>
                 </div>
 
@@ -293,8 +315,8 @@ export default function Home() {
                     <Zap className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">7-Day Hiring</h4>
-                    <p className="text-xs text-muted-foreground mt-1">Average time-to-hire of just 7 business days for vetted candidates.</p>
+                    <h4 className="font-bold text-white text-sm">7-Day Hiring</h4>
+                    <p className="text-xs text-white/70 mt-1">Average time-to-hire of just 7 business days for vetted candidates.</p>
                   </div>
                 </div>
 
@@ -303,8 +325,8 @@ export default function Home() {
                     <Cpu className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-vine-forest text-sm">Key Roles Filled</h4>
-                    <p className="text-xs text-muted-foreground mt-1">ML Engineers, NLP Specialists, AI PMs, Data Engineers, LLM Devs, CV Engineers, AI Trainers.</p>
+                    <h4 className="font-bold text-white text-sm">Key Roles Filled</h4>
+                    <p className="text-xs text-white/70 mt-1">ML Engineers, NLP Specialists, AI PMs, Data Engineers, LLM Devs, CV Engineers, AI Trainers.</p>
                   </div>
                 </div>
               </div>
@@ -387,14 +409,14 @@ export default function Home() {
       </section>
 
       {/* 5. Industries Section */}
-      <section className="py-24">
+      <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="font-mono text-xs font-bold tracking-widest text-vine-green uppercase">Sectors Served</span>
-            <h2 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest">
+            <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
               Engineered for Core Industries
             </h2>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-white/80 text-sm">
               We deliver specialized AI skillsets tailored to the domain logic of specific industrial segments.
             </p>
           </div>
@@ -445,7 +467,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Banner */}
-          <div className="mt-16 bg-[#010a1f] text-vine-forest p-8 rounded-card border border-vine-green/40 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8 shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] transition-all duration-500">
+          <div className="mt-16 bg-[#010a1f] text-white p-8 rounded-card border border-vine-green/40 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8 shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] transition-all duration-500">
             {/* Glowing Core Background */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(32,120,207,0.4)_0%,transparent_60%)] animate-pulse pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             

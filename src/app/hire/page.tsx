@@ -4,7 +4,7 @@ import Link from "next/link";
 import HireTalentForm from "@/components/forms/HireTalentForm";
 import { Modal } from "@/components/ui/modal";
 import { Building2, ArrowRight, CheckCircle2, Database, Sparkles } from "lucide-react";
-import { AuroraHero } from "@/components/ui/aurora-hero-bg";
+import Lightfall from "@/components/ui/Lightfall";
 
 export default function HirePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,34 +46,57 @@ export default function HirePage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-transparent">
-      <AuroraHero className="min-h-[70vh] pt-32 pb-16 items-start sm:items-center">
-        <div className="text-center space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-vine-green/20 border border-vine-green/30 text-vine-green rounded-full text-xs font-semibold font-mono tracking-wider uppercase backdrop-blur-md">
-            <Building2 className="w-4 h-4" /> For Companies
-          </span>
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
-            Hire Pre-Vetted AI Talent. <br/><span className="text-vine-green drop-shadow-sm">No Guesswork.</span>
-          </h1>
-          <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md">
-            Tell us the role. We'll deliver interview-ready AI professionals — contract, C2C, or full-time.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-vine-green text-white font-semibold rounded-vine text-sm hover:bg-vine-green/90 transition-all duration-300 shadow-[0_0_30px_rgba(32,120,207,0.4)] hover:shadow-[0_0_40px_rgba(32,120,207,0.6)] hover:-translate-y-1"
-            >
-              Request Specific Talent <ArrowRight className="w-4 h-4" />
-            </button>
-            <Link
-              href="/talent"
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-vine text-sm hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
-            >
-              Browse Our Talent Pool
-            </Link>
+      {/* Global Lightfall Background */}
+      <div className="fixed inset-0 z-0 pointer-events-auto opacity-70">
+        <Lightfall
+          colors={['#6567b3', '#ffffff', '#15164f']}
+          backgroundColor="#000208"
+          speed={0.4}
+          streakCount={6}
+          streakWidth={0.3}
+          streakLength={1.5}
+          glow={0.7}
+          density={0.3}
+          twinkle={1}
+          zoom={3}
+          backgroundGlow={0.5}
+          opacity={1}
+          mouseInteraction={true}
+          mouseStrength={0.5}
+          mouseRadius={0.75}
+        />
+      </div>
+
+      <div className="relative z-10">
+        {/* Hero Section Container */}
+        <div className="relative min-h-[70vh] flex flex-col justify-center pt-32 pb-16">
+          <div className="text-center space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <span className="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-vine-green/20 border border-vine-green/30 text-white rounded-full text-xs font-semibold font-mono tracking-wider uppercase backdrop-blur-md">
+              <Building2 className="w-4 h-4" /> For Companies
+            </span>
+            <h1 className="font-display text-4xl sm:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
+              Hire Pre-Vetted AI Talent. <br/><span className="text-vine-green drop-shadow-sm">No Guesswork.</span>
+            </h1>
+            <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+              Tell us the role. We'll deliver interview-ready AI professionals — contract, C2C, or full-time.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-vine-green text-white font-semibold rounded-vine text-sm hover:bg-vine-green/90 transition-all duration-300 shadow-[0_0_30px_rgba(32,120,207,0.4)] hover:shadow-[0_0_40px_rgba(32,120,207,0.6)] hover:-translate-y-1"
+              >
+                Request Specific Talent <ArrowRight className="w-4 h-4" />
+              </button>
+              <Link
+                href="/talent"
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-vine text-sm hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+              >
+                Browse Our Talent Pool
+              </Link>
+            </div>
           </div>
         </div>
-      </AuroraHero>
 
       {/* Background accents for lower section */}
       <div className="absolute bottom-0 inset-x-0 h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(32,120,207,0.15),transparent_50%)] pointer-events-none -z-0" />
@@ -163,6 +186,8 @@ export default function HirePage() {
             </div>
           </div>
         </div>
+      </div>
+      
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>

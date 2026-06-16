@@ -4,6 +4,8 @@ import JoinForm from "@/components/forms/JoinForm";
 import { Modal } from "@/components/ui/modal";
 import { Terminal, CheckCircle2, ArrowRight, UserPlus, Award, Zap } from "lucide-react";
 
+import Lightfall from "@/components/ui/Lightfall";
+
 export default function JoinPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -31,35 +33,58 @@ export default function JoinPage() {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-24 relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-vine-sage/5 to-transparent pointer-events-none" />
+    <div className="min-h-screen relative overflow-hidden bg-transparent">
       
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Header Section (Centered) */}
-        <div className="text-center space-y-6 max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-vine-sage/10 border border-vine-sage/20 text-vine-sage rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
-            <Terminal className="w-4 h-4" /> For Candidates
-          </span>
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-vine-forest tracking-tight leading-tight">
-            Your AI Career. <br/><span className="text-vine-sage drop-shadow-sm">Rooted in Opportunity.</span>
-          </h1>
-          <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Whether you're an emerging AI professional or a seasoned engineer — AI VINE connects you with the right companies across the USA.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center gap-2 px-8 py-4 bg-vine-sage text-white font-semibold rounded-vine text-sm hover:bg-vine-sage/90 transition-all duration-300 shadow-[0_0_30px_rgba(14,78,178,0.4)] hover:shadow-[0_0_40px_rgba(14,78,178,0.6)] hover:-translate-y-1"
-            >
-              Submit Your Profile <ArrowRight className="w-4 h-4" />
-            </button>
+      {/* Global Lightfall Background */}
+      <div className="fixed inset-0 z-0 pointer-events-auto opacity-70">
+        <Lightfall
+          colors={['#6567b3', '#ffffff', '#15164f']}
+          backgroundColor="#000208"
+          speed={0.4}
+          streakCount={6}
+          streakWidth={0.3}
+          streakLength={1.5}
+          glow={0.7}
+          density={0.3}
+          twinkle={1}
+          zoom={3}
+          backgroundGlow={0.5}
+          opacity={1}
+          mouseInteraction={true}
+          mouseStrength={0.5}
+          mouseRadius={0.75}
+        />
+      </div>
+
+      {/* Main Content Wrapper */}
+      <div className="relative z-10">
+        {/* Hero Section Container */}
+        <div className="relative min-h-[70vh] flex items-center pt-32 pb-16">
+          {/* Header Content */}
+          <div className="text-center space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <span className="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-vine-sage/20 border border-vine-sage/30 text-white rounded-full text-xs font-semibold font-mono tracking-wider uppercase backdrop-blur-md">
+              <Terminal className="w-4 h-4" /> For Candidates
+            </span>
+            <h1 className="font-display text-4xl sm:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
+              Your AI Career. <br/><span className="text-white/90 drop-shadow-sm">Rooted in Opportunity.</span>
+            </h1>
+            <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+              Whether you're an emerging AI professional or a seasoned engineer — AI VINE connects you with the right companies across the USA.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-vine-sage text-white font-semibold rounded-vine text-sm hover:bg-vine-sage/90 transition-all duration-300 shadow-[0_0_30px_rgba(14,78,178,0.4)] hover:shadow-[0_0_40px_rgba(14,78,178,0.6)] hover:-translate-y-1"
+              >
+                Submit Your Profile <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Content Sections Grid */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-12">
+          {/* Content Sections Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
           
           {/* Left Column */}
@@ -145,6 +170,8 @@ export default function JoinPage() {
             </div>
           </div>
         </div>
+      </div>
+      
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
