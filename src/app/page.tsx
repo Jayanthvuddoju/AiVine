@@ -83,10 +83,10 @@ export default function Home() {
               {/* Display Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="font-display text-4xl sm:text-5xl md:text-[4.125rem] font-bold tracking-tight text-[#f7f7f7] leading-[1.08] drop-shadow-sm"
+                className="font-elianto text-4xl sm:text-5xl md:text-[4.125rem] font-bold tracking-tight text-[#f7f7f7] leading-[1.08] drop-shadow-sm"
               >
                 Where AI Talent <br />
-                Takes Root and <br />
+                Takes Root And <br />
                 <span className="text-[#2078cf] relative">
                   Innovation Grows
                 </span>

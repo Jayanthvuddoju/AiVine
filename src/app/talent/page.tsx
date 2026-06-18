@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import FilterBar, { FilterState } from "@/components/talent/FilterBar";
 import CandidateCard from "@/components/talent/CandidateCard";
 import RequestProfileModal from "@/components/talent/RequestProfileModal";
-import { mockCandidates } from "@/data/candidates";
+import { Candidate } from "@/types/candidate";
 import { AnimatePresence } from "framer-motion";
 import { SearchX, Sparkles, Sprout } from "lucide-react";
 import Fuse from "fuse.js";
@@ -23,6 +23,21 @@ const initialFilters: FilterState = {
 export default function TalentPoolPage() {
   const [filters, setFilters] = useState<FilterState>(initialFilters);
   const [selectedCandidateId, setSelectedCandidateId] = useState<string | null>(null);
+  const [candidates, setCandidates] = useState<Candidate[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/candidates")
+      .then((res) => res.json())
+      .then((data) => {
+        setCandidates(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch candidates", err);
+        setLoading(false);
+      });
+  }, []);
 
   const handleReset = () => {
     setFilters(initialFilters);
@@ -30,7 +45,7 @@ export default function TalentPoolPage() {
 
   // Memoized real-time filtering using Fuse.js and standard filters
   const filteredCandidates = useMemo(() => {
-    let result = [...mockCandidates];
+    let result = [...candidates];
 
     // Fuzzy search using Fuse.js
     if (filters.searchQuery.trim()) {
@@ -74,7 +89,7 @@ export default function TalentPoolPage() {
     }
 
     return result;
-  }, [filters]);
+  }, [filters, candidates]);
 
   return (
     <div className="min-h-screen  pt-24 pb-16">
@@ -114,7 +129,11 @@ export default function TalentPoolPage() {
         </div>
 
         {/* Candidates Grid */}
-        {filteredCandidates.length > 0 ? (
+        {loading ? (
+          <div className="flex justify-center py-12">
+            <div className="w-8 h-8 border-4 border-vine-green border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : filteredCandidates.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredCandidates.map((candidate) => (
               <CandidateCard

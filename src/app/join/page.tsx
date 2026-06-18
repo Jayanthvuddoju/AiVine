@@ -5,6 +5,7 @@ import { Modal } from "@/components/ui/modal";
 import { Terminal, CheckCircle2, ArrowRight, UserPlus, Award, Zap } from "lucide-react";
 
 import Lightfall from "@/components/ui/Lightfall";
+import NetworkDiagram from "@/components/ui/network-diagram";
 
 export default function JoinPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,51 +36,50 @@ export default function JoinPage() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-transparent">
       
-      {/* Global Lightfall Background */}
-      <div className="fixed inset-0 z-0 pointer-events-auto opacity-70">
-        <Lightfall
-          colors={['#6567b3', '#ffffff', '#15164f']}
-          backgroundColor="#000208"
-          speed={0.4}
-          streakCount={6}
-          streakWidth={0.3}
-          streakLength={1.5}
-          glow={0.7}
-          density={0.3}
-          twinkle={1}
-          zoom={3}
-          backgroundGlow={0.5}
-          opacity={1}
-          mouseInteraction={true}
-          mouseStrength={0.5}
-          mouseRadius={0.75}
+      {/* Fixed Full-Screen Background */}
+      <div 
+        className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/PinkBg.png)' }}
+      >
+        {/* Dark Overlay */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.35), rgba(0,0,0,0.8))' }}
         />
+        {/* Bottom Pink Glow */}
+        <div className="absolute bottom-0 inset-x-0 h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,105,180,0.15),transparent_50%)] pointer-events-none" />
       </div>
 
       {/* Main Content Wrapper */}
       <div className="relative z-10">
         {/* Hero Section Container */}
-        <div className="relative min-h-[70vh] flex items-center pt-32 pb-16">
-          {/* Header Content */}
-          <div className="text-center space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <span className="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-vine-sage/20 border border-vine-sage/30 text-white rounded-full text-xs font-semibold font-mono tracking-wider uppercase backdrop-blur-md">
-              <Terminal className="w-4 h-4" /> For Candidates
-            </span>
-            <h1 className="font-display text-4xl sm:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
-              Your AI Career. <br/><span className="text-white/90 drop-shadow-sm">Rooted in Opportunity.</span>
-            </h1>
-            <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md">
-              Whether you're an emerging AI professional or a seasoned engineer — AI VINE connects you with the right companies across the USA.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-vine-sage text-white font-semibold rounded-vine text-sm hover:bg-vine-sage/90 transition-all duration-300 shadow-[0_0_30px_rgba(14,78,178,0.4)] hover:shadow-[0_0_40px_rgba(14,78,178,0.6)] hover:-translate-y-1"
-              >
-                Submit Your Profile <ArrowRight className="w-4 h-4" />
-              </button>
+        <div className="relative min-h-[70vh] flex flex-col justify-center pt-20 pb-16 overflow-hidden lg:overflow-visible">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+            {/* Header Content (Left) */}
+            <div className="space-y-6 text-center lg:text-left lg:col-span-5 lg:ml-8">
+              <h1 className="font-deltha text-4xl sm:text-6xl font-bold text-[#FFFFFF] tracking-[-0.04em] leading-tight drop-shadow-lg">
+                Your AI Career. <br/>
+                <span className="text-[#EAE5D9]">Rooted in Opportunity.</span>
+              </h1>
+              <p className="font-space-grotesk text-[#D2D5DC] font-normal text-base sm:text-lg leading-[1.8] max-w-xl mx-auto lg:mx-0 drop-shadow-md">
+                Whether you're an emerging AI professional or a seasoned engineer — AI VINE connects you with the right companies across the USA.
+              </p>
             </div>
+
+            {/* Network Diagram (Right) */}
+            <div className="w-full h-full min-h-[300px] sm:min-h-[400px] lg:col-span-7 scale-100 lg:scale-110 origin-right lg:-mr-12 translate-y-6 lg:translate-y-10">
+              <NetworkDiagram />
+            </div>
+          </div>
+
+          {/* Centered CTA Row */}
+          <div className="w-full flex justify-center mt-6 relative z-10">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="flex items-center justify-center gap-2 px-10 py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full text-base hover:bg-white/20 transition-all duration-300 shadow-[0_0_30px_rgba(234,229,217,0.15),inset_0_1px_0_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(234,229,217,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] hover:-translate-y-1"
+            >
+              Submit Your Profile <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
 
@@ -90,17 +90,17 @@ export default function JoinPage() {
           {/* Left Column */}
           <div className="space-y-12">
             {/* How to Join */}
-            <div className="bg-white/60 dark:bg-[#010a1f]/60 backdrop-blur-md rounded-3xl p-8 border border-vine-forest/5 dark:border-white/5 shadow-xl">
-              <h3 className="font-display text-2xl font-bold text-vine-forest dark:text-white mb-6 flex items-center gap-3">
-                <UserPlus className="w-6 h-6 text-vine-sage" /> How to Join
+            <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+              <h3 className="font-exo-2 text-2xl font-bold text-[#FFFFFF] mb-6 flex items-center gap-3">
+                <UserPlus className="w-6 h-6 text-[#EAE5D9]" /> How to Join
               </h3>
-              <ul className="space-y-5">
+              <ul className="space-y-5 relative z-10">
                 {howToJoin.map((step, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-vine-sage/10 text-vine-sage font-mono text-[10px] font-bold shrink-0 mt-0.5">
+                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[rgba(255,255,255,0.04)] border-t border-[#EAE5D9] text-[#FFFFFF] font-mono text-[10px] font-bold shrink-0 mt-0.5">
                       0{idx + 1}
                     </span>
-                    <span className="text-sm font-medium text-vine-forest/80 dark:text-white/80 leading-relaxed pt-0.5">
+                    <span className="text-sm font-medium text-[#D2D5DC] leading-relaxed pt-0.5">
                       {step}
                     </span>
                   </li>
@@ -109,16 +109,15 @@ export default function JoinPage() {
             </div>
 
             {/* What You Get */}
-            <div className="bg-root-cream dark:bg-[#0a122c] rounded-3xl p-8 border border-vine-sage/10 shadow-lg relative overflow-hidden group">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(14,78,178,0.05),transparent_60%)]" />
-              <h3 className="font-display text-2xl font-bold text-vine-forest dark:text-white mb-6 relative z-10 flex items-center gap-3">
-                <Zap className="w-6 h-6 text-vine-sage" /> What You Get
+            <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+              <h3 className="font-exo-2 text-2xl font-bold text-[#FFFFFF] mb-6 relative z-10 flex items-center gap-3">
+                <Zap className="w-6 h-6 text-[#EAE5D9]" /> What You Get
               </h3>
               <ul className="space-y-3 relative z-10">
                 {whatYouGet.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-vine-sage shrink-0" />
-                    <span className="text-sm text-vine-forest/70 dark:text-white/70">{item}</span>
+                    <CheckCircle2 className="w-5 h-5 text-[#EAE5D9] shrink-0" />
+                    <span className="text-sm text-[#D2D5DC]">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -128,16 +127,15 @@ export default function JoinPage() {
           {/* Right Column */}
           <div className="space-y-12">
             {/* Who We Place */}
-            <div className="bg-vine-forest dark:bg-[#010a1f] rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-vine-sage/20 to-transparent opacity-50" />
-              <h3 className="font-display text-2xl font-bold text-white mb-6 relative z-10 flex items-center gap-3">
-                <Award className="w-6 h-6 text-vine-sage" /> Who We Place
+            <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+              <h3 className="font-exo-2 text-2xl font-bold text-[#FFFFFF] mb-6 relative z-10 flex items-center gap-3">
+                <Award className="w-6 h-6 text-[#EAE5D9]" /> Who We Place
               </h3>
               <div className="flex flex-col gap-3 relative z-10">
                 {whoWePlace.map((who, idx) => (
                   <div
                     key={idx}
-                    className="px-4 py-3 bg-white/5 border border-white/10 text-white/90 font-medium text-sm rounded-xl hover:bg-white/10 transition-colors"
+                    className="px-4 py-3 bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] text-[#D2D5DC] font-medium text-sm rounded-xl hover:bg-[rgba(255,255,255,0.08)] transition-colors"
                   >
                     {who}
                   </div>
@@ -149,8 +147,8 @@ export default function JoinPage() {
 
         {/* Bottom CTA Section */}
         <div className="mt-20 max-w-4xl mx-auto text-center">
-          <div className="bg-[#010a1f] border border-vine-sage/40 rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-[0_0_60px_-15px_rgba(14,78,178,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(14,78,178,0.7)] hover:border-vine-sage/60 transition-all duration-500">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,78,178,0.3)_0%,transparent_70%)] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,229,217,0.08)_0%,transparent_70%)] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 space-y-4">
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -162,7 +160,7 @@ export default function JoinPage() {
               <div className="pt-2">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="inline-flex items-center justify-center px-8 py-3 bg-vine-sage text-white font-bold rounded-vine text-sm hover:bg-vine-sage/90 transition-all duration-300 shadow-[0_0_20px_rgba(14,78,178,0.3)]"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full text-sm hover:bg-white/20 transition-all duration-300 shadow-[0_0_30px_rgba(234,229,217,0.15),inset_0_1px_0_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(234,229,217,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] hover:-translate-y-1"
                 >
                   Submit Your Profile
                 </button>

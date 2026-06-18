@@ -2,6 +2,22 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: 'Elianto';
+  src: url('/fonts/Elianto-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Deltha';
+  src: url('/fonts/Deltha.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -14,6 +30,11 @@
   --font-display: "Fraunces", serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-syncopate: "Syncopate", sans-serif;
+  --font-elianto: "Elianto", sans-serif;
+  --font-deltha: "Deltha", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-exo-2: "Exo 2", sans-serif;
 
   --color-vine-green: #2078CF;
   --color-vine-sage: #0E4EB2;
@@ -66,7 +87,7 @@
 }
 
 :root {
-  --background: #000208;
+  --background: #010d2e;
   --foreground: #E0F2FE;
   --card: #010a1f;
   --card-foreground: #93C5FD;
@@ -96,7 +117,7 @@
 }
 
 .dark {
-  --background: #000208;
+  --background: #010d2e;
   --foreground: #E0F2FE;
   --card: #010a1f;
   --card-foreground: #93C5FD;
@@ -264,4 +285,13 @@
   box-shadow:
     0 0 12px rgba(32, 120, 207, 0.15) inset,
     0 0 20px rgba(32, 120, 207, 0.08);
+}
+
+@keyframes pulse-line {
+  0% { stroke-dashoffset: 800; }
+  100% { stroke-dashoffset: -100; }
+}
+
+.animate-pulse-line {
+  animation: pulse-line 3s linear infinite;
 }

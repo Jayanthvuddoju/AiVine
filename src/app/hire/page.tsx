@@ -4,7 +4,6 @@ import Link from "next/link";
 import HireTalentForm from "@/components/forms/HireTalentForm";
 import { Modal } from "@/components/ui/modal";
 import { Building2, ArrowRight, CheckCircle2, Database, Sparkles } from "lucide-react";
-import Lightfall from "@/components/ui/Lightfall";
 
 export default function HirePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,61 +44,57 @@ export default function HirePage() {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-transparent">
-      {/* Global Lightfall Background */}
-      <div className="fixed inset-0 z-0 pointer-events-auto opacity-70">
-        <Lightfall
-          colors={['#6567b3', '#ffffff', '#15164f']}
-          backgroundColor="#000208"
-          speed={0.4}
-          streakCount={6}
-          streakWidth={0.3}
-          streakLength={1.5}
-          glow={0.7}
-          density={0.3}
-          twinkle={1}
-          zoom={3}
-          backgroundGlow={0.5}
-          opacity={1}
-          mouseInteraction={true}
-          mouseStrength={0.5}
-          mouseRadius={0.75}
+    <>
+      {/* Fixed Full-Screen Background */}
+      <div 
+        className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/GreenBg.png)' }}
+      >
+        {/* Dark Overlay */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.35), rgba(0,0,0,0.8))' }}
         />
+        {/* Bottom Green Glow */}
+        <div className="absolute bottom-0 inset-x-0 h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(0,255,153,0.15),transparent_50%)] pointer-events-none" />
       </div>
 
-      <div className="relative z-10">
+      <div className="min-h-screen relative z-10">
         {/* Hero Section Container */}
         <div className="relative min-h-[70vh] flex flex-col justify-center pt-32 pb-16">
+          {/* Extra dark overlay for hero readability */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.6)_0%,transparent_80%)] pointer-events-none -z-10" />
+          
           <div className="text-center space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <span className="inline-flex items-center justify-center gap-1.5 px-4 py-1.5 bg-vine-green/20 border border-vine-green/30 text-white rounded-full text-xs font-semibold font-mono tracking-wider uppercase backdrop-blur-md">
-              <Building2 className="w-4 h-4" /> For Companies
-            </span>
-            <h1 className="font-display text-4xl sm:text-6xl font-bold text-white tracking-tight leading-tight drop-shadow-lg">
-              Hire Pre-Vetted AI Talent. <br/><span className="text-vine-green drop-shadow-sm">No Guesswork.</span>
+            <h1 className="font-syncopate uppercase text-xl sm:text-3xl md:text-5xl font-bold text-[#FFFFFF] tracking-wide leading-relaxed drop-shadow-lg">
+              <span className="inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom">Hire Pre-Vetted AI Talent</span>
+              <br/>
+              <span className="text-[#00FF99] drop-shadow-sm inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom mt-6">No Guesswork</span>
             </h1>
-            <p className="text-white/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+            <p className="text-[#D8DEE5] font-light text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md tracking-wide">
               Tell us the role. We'll deliver interview-ready AI professionals — contract, C2C, or full-time.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-vine-green text-white font-semibold rounded-vine text-sm hover:bg-vine-green/90 transition-all duration-300 shadow-[0_0_30px_rgba(32,120,207,0.4)] hover:shadow-[0_0_40px_rgba(32,120,207,0.6)] hover:-translate-y-1"
+                className="flex items-center justify-center gap-2 px-8 py-4 text-[#000000] font-bold rounded-full text-sm transition-all duration-300 hover:-translate-y-[2px]"
+                style={{ 
+                  background: 'linear-gradient(90deg, #00FF99, #00D9FF)',
+                  boxShadow: '0 0 40px rgba(0,255,153,0.5)'
+                }}
               >
                 Request Specific Talent <ArrowRight className="w-4 h-4" />
               </button>
               <Link
                 href="/talent"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-vine text-sm hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.15)] text-[#FFFFFF] font-semibold rounded-full text-sm hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
               >
                 Browse Our Talent Pool
               </Link>
             </div>
           </div>
         </div>
-
-      {/* Background accents for lower section */}
-      <div className="absolute bottom-0 inset-x-0 h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(32,120,207,0.15),transparent_50%)] pointer-events-none -z-0" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-24 pt-12">
         {/* Content Sections Grid */}
@@ -108,15 +103,15 @@ export default function HirePage() {
           {/* Left Column */}
           <div className="space-y-12">
             {/* Our Staffing Process */}
-            <div className="bg-white/60 dark:bg-[#010a1f]/60 backdrop-blur-md rounded-3xl p-8 border border-vine-forest/5 dark:border-white/5 shadow-xl">
-              <h3 className="font-display text-2xl font-bold text-vine-forest dark:text-white mb-6 flex items-center gap-3">
-                <Sparkles className="w-6 h-6 text-vine-green" /> Our Staffing Process
+            <div className="bg-[#0a0f12]/65 backdrop-blur-[24px] rounded-3xl p-8 border border-[rgba(255,255,255,0.08)] shadow-[0_20px_60px_rgba(0,255,153,0.08)] hover:border-[#00FF99] transition-all duration-300">
+              <h3 className="font-syncopate uppercase text-xl font-bold text-[#FFFFFF] mb-6 flex items-center gap-3 tracking-wide">
+                <Sparkles className="w-6 h-6 text-[#00FF99]" /> Our Staffing Process
               </h3>
               <ul className="space-y-4">
                 {staffingProcess.map((step, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-vine-green shrink-0 mt-0.5" />
-                    <span className="text-sm font-medium text-vine-forest/80 dark:text-white/80 leading-relaxed">
+                    <CheckCircle2 className="w-5 h-5 text-[#00FF99] shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium text-[#D8DEE5] leading-relaxed">
                       {step}
                     </span>
                   </li>
@@ -126,15 +121,15 @@ export default function HirePage() {
 
             {/* Engagement Models */}
             <div>
-              <h3 className="font-display text-2xl font-bold text-vine-forest dark:text-white mb-6">Engagement Models</h3>
+              <h3 className="font-syncopate uppercase text-xl font-bold text-[#FFFFFF] mb-6 tracking-wide">Engagement Models</h3>
               <div className="space-y-4">
                 {engagementModels.map((model, idx) => (
                   <div
                     key={idx}
-                    className="p-5 bg-white/60 dark:bg-[#010a1f]/60 backdrop-blur-md rounded-2xl border border-vine-forest/5 dark:border-white/5 shadow-sm hover:border-vine-green/30 transition-colors"
+                    className="p-5 bg-[#0a0f12]/65 backdrop-blur-[24px] rounded-2xl border border-[rgba(255,255,255,0.08)] shadow-[0_20px_60px_rgba(0,255,153,0.08)] hover:border-[#00FF99] transition-all duration-300"
                   >
-                    <h4 className="font-bold text-vine-forest dark:text-white text-base">{model.title}</h4>
-                    <p className="text-sm text-vine-forest/60 dark:text-white/60 mt-1">{model.desc}</p>
+                    <h4 className="font-bold text-[#FFFFFF] text-base">{model.title}</h4>
+                    <p className="text-sm text-[#8E9AA7] mt-1">{model.desc}</p>
                   </div>
                 ))}
               </div>
@@ -144,16 +139,16 @@ export default function HirePage() {
           {/* Right Column */}
           <div className="space-y-12">
             {/* Role Categories We Fill */}
-            <div className="bg-vine-forest dark:bg-[#0a122c] rounded-3xl p-8 shadow-2xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(32,120,207,0.15),transparent_70%)]" />
-              <h3 className="font-display text-2xl font-bold text-white mb-6 relative z-10 flex items-center gap-3">
-                <Database className="w-6 h-6 text-vine-green" /> Roles We Fill
+            <div className="bg-[#0a0f12]/65 backdrop-blur-[24px] border border-[rgba(255,255,255,0.08)] shadow-[0_20px_60px_rgba(0,255,153,0.08)] hover:border-[#00FF99] transition-all duration-300 rounded-3xl p-8 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,217,255,0.15),transparent_70%)]" />
+              <h3 className="font-syncopate uppercase text-xl font-bold text-[#FFFFFF] mb-6 relative z-10 flex items-center gap-3 tracking-wide">
+                <Database className="w-6 h-6 text-[#00D9FF]" /> Roles We Fill
               </h3>
               <div className="flex flex-wrap gap-2.5 relative z-10">
                 {roleCategories.map((role, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1.5 bg-white/5 border border-white/10 text-white/90 font-mono text-[11px] rounded-lg hover:bg-vine-green hover:border-vine-green hover:text-white transition-all cursor-default"
+                    className="px-3 py-1.5 bg-white/5 border border-[rgba(255,255,255,0.08)] text-[#D8DEE5] font-mono text-[11px] rounded-lg hover:bg-[#00FF99]/20 hover:border-[#00FF99] hover:text-[#FFFFFF] transition-all cursor-default"
                   >
                     {role}
                   </span>
@@ -165,20 +160,24 @@ export default function HirePage() {
 
         {/* Bottom CTA Section */}
         <div className="mt-20 max-w-4xl mx-auto text-center">
-          <div className="bg-[#010a1f] border border-vine-green/40 rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] hover:border-vine-green/60 transition-all duration-500">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(32,120,207,0.3)_0%,transparent_70%)] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="bg-[#0a0f12]/65 backdrop-blur-[24px] border border-[rgba(255,255,255,0.08)] shadow-[0_20px_60px_rgba(0,255,153,0.08)] hover:border-[#00FF99] rounded-3xl p-8 md:p-10 relative overflow-hidden transition-all duration-500 group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,153,0.15)_0%,transparent_70%)] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 space-y-4">
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              <h2 className="font-syncopate uppercase text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-wide">
                 Establish your AI Pipeline today
               </h2>
-              <p className="text-white/70 max-w-2xl mx-auto text-sm leading-relaxed">
+              <p className="text-[#D8DEE5] max-w-2xl mx-auto text-sm leading-relaxed">
                 Partner with AI VINE to hire engineering teams or develop tailored AI modules. Reach out to schedule a consultation.
               </p>
-              <div className="pt-2">
+              <div className="pt-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-vine-green text-root-cream font-bold rounded-vine text-sm hover:bg-vine-green/90 transition-all duration-300 shadow-[0_0_20px_rgba(32,120,207,0.3)]"
+                  className="inline-flex items-center justify-center px-8 py-4 text-[#000000] font-bold rounded-full text-sm transition-all duration-300 hover:-translate-y-[2px]"
+                  style={{ 
+                    background: 'linear-gradient(90deg, #00FF99, #00D9FF)',
+                    boxShadow: '0 0 40px rgba(0,255,153,0.5)'
+                  }}
                 >
                   Get in Touch
                 </Link>
@@ -193,6 +192,6 @@ export default function HirePage() {
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <HireTalentForm />
       </Modal>
-    </div>
+    </>
   );
 }

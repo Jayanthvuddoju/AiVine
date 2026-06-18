@@ -20,6 +20,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isHirePage = pathname === "/hire";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +43,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b",
         scrolled
-          ? "bg-root-cream/85 backdrop-blur-md border-border/30 py-3 shadow-sm"
+          ? "bg-root-cream/40 backdrop-blur-sm border-border/20 py-3 shadow-sm"
           : "bg-transparent border-transparent py-5"
       )}
     >
@@ -74,7 +75,9 @@ export default function Navbar() {
                   className={cn(
                     "text-sm font-medium transition-all duration-300 relative py-1",
                     isActive
-                      ? "text-vine-green drop-shadow-[0_0_12px_rgba(32,120,207,1)] font-semibold"
+                      ? isHirePage 
+                        ? "text-[#00FF99] drop-shadow-[0_0_12px_rgba(0,255,153,1)] font-semibold"
+                        : "text-vine-green drop-shadow-[0_0_12px_rgba(32,120,207,1)] font-semibold"
                       : "text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] hover:text-white hover:drop-shadow-[0_0_15px_rgba(255,255,255,1)]"
                   )}
                 >
@@ -82,7 +85,10 @@ export default function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-vine-green rounded-full"
+                      className={cn(
+                        "absolute bottom-0 left-0 right-0 h-[2px] rounded-full",
+                        isHirePage ? "bg-[#00FF99]" : "bg-vine-green"
+                      )}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -101,7 +107,12 @@ export default function Navbar() {
             </Link>
             <Link
               href="/hire"
-              className="px-4 py-2 text-sm font-medium bg-vine-green hover:bg-vine-green/90 text-white rounded-vine flex items-center gap-1.5 transition-all duration-300 shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
+              className={cn(
+                "px-4 py-2 text-sm font-medium rounded-vine flex items-center gap-1.5 transition-all duration-300",
+                isHirePage 
+                  ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black shadow-[0_0_20px_rgba(0,255,153,0.5)] hover:shadow-[0_0_30px_rgba(0,255,153,0.8)] hover:opacity-90"
+                  : "bg-vine-green hover:bg-vine-green/90 text-white shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
+              )}
             >
               Hire Talent <ArrowRight className="w-4 h-4" />
             </Link>
@@ -141,7 +152,9 @@ export default function Navbar() {
                       className={cn(
                         "px-3 py-2 rounded-md text-base font-medium transition-colors",
                         isActive
-                          ? "bg-vine-green/10 text-vine-green"
+                          ? isHirePage 
+                            ? "bg-[#00FF99]/10 text-[#00FF99]" 
+                            : "bg-vine-green/10 text-vine-green"
                           : "text-muted-foreground hover:bg-muted"
                       )}
                     >
@@ -164,7 +177,12 @@ export default function Navbar() {
                 <Link
                   href="/hire"
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center py-2.5 px-4 text-sm font-medium bg-vine-green text-white rounded-vine flex items-center justify-center gap-1.5 hover:bg-vine-green/90 transition-colors"
+                  className={cn(
+                    "w-full text-center py-2.5 px-4 text-sm font-medium rounded-vine flex items-center justify-center gap-1.5 transition-colors",
+                    isHirePage
+                      ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black hover:opacity-90"
+                      : "bg-vine-green text-white hover:bg-vine-green/90"
+                  )}
                 >
                   Hire Talent <ArrowRight className="w-4 h-4" />
                 </Link>
