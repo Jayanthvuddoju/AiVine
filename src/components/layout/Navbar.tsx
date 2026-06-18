@@ -21,6 +21,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHirePage = pathname === "/hire";
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,7 +112,9 @@ export default function Navbar() {
                 "px-4 py-2 text-sm font-medium rounded-vine flex items-center gap-1.5 transition-all duration-300",
                 isHirePage 
                   ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black shadow-[0_0_20px_rgba(0,255,153,0.5)] hover:shadow-[0_0_30px_rgba(0,255,153,0.8)] hover:opacity-90"
-                  : "bg-vine-green hover:bg-vine-green/90 text-white shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
+                  : isHomePage
+                    ? "bg-[#7859ba] hover:bg-[#7859ba]/90 text-white shadow-[0_0_20px_rgba(120,89,186,0.5)] hover:shadow-[0_0_30px_rgba(120,89,186,0.8)]"
+                    : "bg-vine-green hover:bg-vine-green/90 text-white shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
               )}
             >
               Hire Talent <ArrowRight className="w-4 h-4" />
@@ -181,7 +184,9 @@ export default function Navbar() {
                     "w-full text-center py-2.5 px-4 text-sm font-medium rounded-vine flex items-center justify-center gap-1.5 transition-colors",
                     isHirePage
                       ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black hover:opacity-90"
-                      : "bg-vine-green text-white hover:bg-vine-green/90"
+                      : isHomePage
+                        ? "bg-[#7859ba] text-white hover:bg-[#7859ba]/90"
+                        : "bg-vine-green text-white hover:bg-vine-green/90"
                   )}
                 >
                   Hire Talent <ArrowRight className="w-4 h-4" />
