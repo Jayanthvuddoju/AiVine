@@ -42,24 +42,16 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
-      {/* Global Lightfall Background - Hidden behind Hero because Hero has solid background */}
-      <div className="fixed inset-0 z-0 pointer-events-auto opacity-40">
-        <Lightfall
-          colors={['#6567b3', '#ffffff', '#15164f']}
-          backgroundColor="#000208"
-          speed={0.4}
-          streakCount={6}
-          streakWidth={0.3}
-          streakLength={1.5}
-          glow={0.7}
-          density={0.3}
-          twinkle={1}
-          zoom={3}
-          backgroundGlow={0.5}
-          opacity={1}
-          mouseInteraction={true}
-          mouseStrength={0.5}
-          mouseRadius={0.75}
+      {/* Fixed Full-Screen Background */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/BlueBg.png)' }}
+      >
+        {/* Dark Overlay for readability */}
+        <div className="absolute inset-0 bg-black/50 pointer-events-none" />
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.9))' }}
         />
       </div>
 
@@ -185,7 +177,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Path A: For Companies */}
-            <div className="bg-[#010a1f] rounded-card p-8 border border-vine-green/40 relative overflow-hidden shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] transition-all duration-500">
+            <div className="liquid-glass p-8 relative overflow-hidden group hover:border-vine-green/30 transition-all duration-500 hover:-translate-y-1">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(32,120,207,0.4)_0%,transparent_60%)] animate-pulse pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10 space-y-8">
@@ -228,7 +220,7 @@ export default function Home() {
             </div>
 
             {/* Path B: For Candidates */}
-            <div className="bg-[#010a1f] rounded-card p-8 border border-vine-sage/40 relative overflow-hidden shadow-[0_0_60px_-15px_rgba(14,78,178,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(14,78,178,0.7)] transition-all duration-500">
+            <div className="liquid-glass p-8 relative overflow-hidden group hover:border-vine-sage/30 transition-all duration-500 hover:-translate-y-1">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,78,178,0.4)_0%,transparent_60%)] animate-pulse pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10 space-y-8">
@@ -467,7 +459,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Banner */}
-          <div className="mt-16 bg-[#010a1f] text-white p-8 rounded-card border border-vine-green/40 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8 shadow-[0_0_60px_-15px_rgba(32,120,207,0.5)] group hover:shadow-[0_0_80px_-10px_rgba(32,120,207,0.7)] transition-all duration-500">
+          <div className="mt-16 liquid-glass text-white p-8 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-8 group transition-all duration-500 hover:-translate-y-1 hover:border-vine-green/30">
             {/* Glowing Core Background */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(32,120,207,0.4)_0%,transparent_60%)] animate-pulse pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             
