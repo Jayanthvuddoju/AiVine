@@ -57,9 +57,9 @@ export default function JoinPage() {
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
             {/* Header Content (Left) */}
             <div className="space-y-6 text-center lg:text-left lg:col-span-5 lg:ml-8">
-              <h1 className="font-deltha text-4xl sm:text-6xl font-bold text-[#FFFFFF] tracking-[-0.04em] leading-tight drop-shadow-lg">
-                Your AI Career. <br/>
-                <span className="text-[#EAE5D9]">Rooted in Opportunity.</span>
+              <h1 className="font-deltha text-4xl sm:text-6xl font-bold tracking-[-0.04em] leading-tight drop-shadow-md">
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b]">Your</span> <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#9d4494] via-[#5c2057] to-[#2c0829]">AI Career.</span> <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#ffffff] via-[#EAE5D9] to-[#a39a7b]">Rooted in Opportunity.</span>
               </h1>
               <p className="font-space-grotesk text-[#D2D5DC] font-normal text-base sm:text-lg leading-[1.8] max-w-xl mx-auto lg:mx-0 drop-shadow-md">
                 Whether you're an emerging AI professional or a seasoned engineer — AI VINE connects you with the right companies across the USA.
@@ -90,7 +90,7 @@ export default function JoinPage() {
           {/* Left Column */}
           <div className="space-y-12">
             {/* How to Join */}
-            <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+            <div className="liquid-glass p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-white/20">
               <h3 className="font-exo-2 text-2xl font-bold text-[#FFFFFF] mb-6 flex items-center gap-3">
                 <UserPlus className="w-6 h-6 text-[#EAE5D9]" /> How to Join
               </h3>
@@ -109,7 +109,7 @@ export default function JoinPage() {
             </div>
 
             {/* What You Get */}
-            <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+            <div className="liquid-glass p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-white/20">
               <h3 className="font-exo-2 text-2xl font-bold text-[#FFFFFF] mb-6 relative z-10 flex items-center gap-3">
                 <Zap className="w-6 h-6 text-[#EAE5D9]" /> What You Get
               </h3>
@@ -127,7 +127,7 @@ export default function JoinPage() {
           {/* Right Column */}
           <div className="space-y-12">
             {/* Who We Place */}
-            <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+            <div className="liquid-glass p-8 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-white/20">
               <h3 className="font-exo-2 text-2xl font-bold text-[#FFFFFF] mb-6 relative z-10 flex items-center gap-3">
                 <Award className="w-6 h-6 text-[#EAE5D9]" /> Who We Place
               </h3>
@@ -147,7 +147,7 @@ export default function JoinPage() {
 
         {/* Bottom CTA Section */}
         <div className="mt-20 max-w-4xl mx-auto text-center">
-          <div className="bg-[rgba(16,16,24,0.55)] backdrop-blur-[24px] border border-[rgba(255,255,255,0.06)] rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.4)] p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-[rgba(234,229,217,0.2)]">
+          <div className="liquid-glass p-8 md:p-10 relative overflow-hidden group transition-all duration-500 hover:-translate-y-1 hover:border-white/20">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,229,217,0.08)_0%,transparent_70%)] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
             
             <div className="relative z-10 space-y-4">
@@ -178,3 +178,5 @@ export default function JoinPage() {
     </div>
   );
 }
+
+// force recompile

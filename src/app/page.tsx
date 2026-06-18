@@ -75,11 +75,11 @@ export default function Home() {
               {/* Display Headline */}
               <motion.h1
                 variants={itemVariants}
-                className="font-elianto text-4xl sm:text-5xl md:text-[4.125rem] font-bold tracking-tight text-[#f7f7f7] leading-[1.08] drop-shadow-sm"
+                className="font-elianto text-4xl sm:text-5xl md:text-[4.125rem] font-bold tracking-tight leading-[1.08] text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] drop-shadow-md"
               >
                 Where AI Talent <br />
                 Takes Root And <br />
-                <span className="text-[#7859ba] relative">
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#d8b4fe] via-[#7859ba] to-[#3b0764] relative">
                   Innovation Grows
                 </span>
               </motion.h1>
