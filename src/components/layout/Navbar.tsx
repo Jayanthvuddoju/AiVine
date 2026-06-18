@@ -80,7 +80,7 @@ export default function Navbar() {
                       ? isHirePage 
                         ? "text-[#00FF99] drop-shadow-[0_0_12px_rgba(0,255,153,1)] font-semibold"
                         : isJoinPage
-                          ? "text-[#d8b4fe] drop-shadow-[0_0_12px_rgba(216,180,254,0.8)] font-semibold"
+                          ? "text-[#5c2057] drop-shadow-[0_0_12px_rgba(206,129,200,1)] font-semibold"
                           : "text-vine-green drop-shadow-[0_0_12px_rgba(32,120,207,1)] font-semibold"
                       : "text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] hover:text-white hover:drop-shadow-[0_0_15px_rgba(255,255,255,1)]"
                   )}
@@ -91,7 +91,7 @@ export default function Navbar() {
                       layoutId="activeNavIndicator"
                       className={cn(
                         "absolute bottom-0 left-0 right-0 h-[2px] rounded-full",
-                        isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#d8b4fe]" : "bg-vine-green"
+                        isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : "bg-vine-green"
                       )}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -105,12 +105,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="/join"
-              className={cn(
-                "px-4 py-2 text-sm font-medium rounded-vine transition-all duration-300",
-                isJoinPage
-                  ? "bg-[#5c2057] text-white hover:bg-[#5c2057]/90 shadow-[0_0_20px_rgba(92,32,87,0.5)] hover:shadow-[0_0_30px_rgba(92,32,87,0.8)]"
-                  : "border border-[#f7f7f7]/30 hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] text-[#f7f7f7]"
-              )}
+              className="px-4 py-2 text-sm font-medium border border-[#f7f7f7]/30 rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] text-[#f7f7f7] transition-all duration-300"
             >
               Join Talent
             </Link>
@@ -120,6 +115,8 @@ export default function Navbar() {
                 "px-4 py-2 text-sm font-medium rounded-vine flex items-center gap-1.5 transition-all duration-300",
                 isHirePage 
                   ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black shadow-[0_0_20px_rgba(0,255,153,0.5)] hover:shadow-[0_0_30px_rgba(0,255,153,0.8)] hover:opacity-90"
+                  : isJoinPage
+                    ? "bg-[#5c2057] hover:bg-[#5c2057]/90 text-white shadow-[0_0_20px_rgba(92,32,87,0.5)] hover:shadow-[0_0_30px_rgba(92,32,87,0.8)]"
                   : isHomePage
                     ? "bg-[#7859ba] hover:bg-[#7859ba]/90 text-white shadow-[0_0_20px_rgba(120,89,186,0.5)] hover:shadow-[0_0_30px_rgba(120,89,186,0.8)]"
                     : "bg-vine-green hover:bg-vine-green/90 text-white shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
@@ -166,7 +163,7 @@ export default function Navbar() {
                           ? isHirePage 
                             ? "bg-[#00FF99]/10 text-[#00FF99]" 
                             : isJoinPage
-                              ? "bg-[#5c2057]/20 text-[#d8b4fe]"
+                              ? "bg-[#5c2057]/10 text-[#5c2057]"
                               : "bg-vine-green/10 text-vine-green"
                           : "text-muted-foreground hover:bg-muted"
                       )}
@@ -183,12 +180,7 @@ export default function Navbar() {
                 <Link
                   href="/join"
                   onClick={() => setIsOpen(false)}
-                  className={cn(
-                    "w-full text-center py-2.5 px-4 text-sm font-medium rounded-vine transition-colors",
-                    isJoinPage
-                      ? "bg-[#5c2057] text-white hover:bg-[#5c2057]/90"
-                      : "border border-[#f7f7f7]/30 hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 text-[#f7f7f7]"
-                  )}
+                  className="w-full text-center py-2.5 px-4 text-sm font-medium border border-[#f7f7f7]/30 rounded-vine hover:border-[#f7f7f7] hover:bg-[#f7f7f7]/5 text-[#f7f7f7] transition-colors"
                 >
                   Join Talent
                 </Link>
@@ -199,6 +191,8 @@ export default function Navbar() {
                     "w-full text-center py-2.5 px-4 text-sm font-medium rounded-vine flex items-center justify-center gap-1.5 transition-colors",
                     isHirePage
                       ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black hover:opacity-90"
+                      : isJoinPage
+                        ? "bg-[#5c2057] text-white hover:bg-[#5c2057]/90"
                       : isHomePage
                         ? "bg-[#7859ba] text-white hover:bg-[#7859ba]/90"
                         : "bg-vine-green text-white hover:bg-vine-green/90"

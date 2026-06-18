@@ -66,10 +66,10 @@ export default function HirePage() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.6)_0%,transparent_80%)] pointer-events-none -z-10" />
           
           <div className="text-center space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h1 className="font-syncopate uppercase text-xl sm:text-3xl md:text-5xl font-bold text-[#FFFFFF] tracking-wide leading-relaxed drop-shadow-lg">
-              <span className="inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom">Hire Pre-Vetted AI Talent</span>
+            <h1 className="font-syncopate uppercase text-xl sm:text-3xl md:text-5xl font-bold tracking-wide leading-relaxed drop-shadow-md">
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom">Hire Pre-Vetted AI Talent</span>
               <br/>
-              <span className="text-[#00FF99] drop-shadow-sm inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom mt-6">No Guesswork</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#bbf7d0] via-[#00FF99] to-[#065f46] drop-shadow-sm inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom mt-6">No Guesswork</span>
             </h1>
             <p className="text-[#D8DEE5] font-light text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md tracking-wide">
               Tell us the role. We'll deliver interview-ready AI professionals — contract, C2C, or full-time.
