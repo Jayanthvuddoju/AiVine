@@ -23,6 +23,7 @@ export default function Navbar() {
   const isHirePage = pathname === "/hire";
   const isHomePage = pathname === "/";
   const isJoinPage = pathname === "/join";
+  const isAboutPage = pathname === "/about";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,16 +54,19 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-vine-green flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-12">
-              <Sprout className="w-6 h-6 text-root-cream" />
+            <div className={cn(
+              "w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-12",
+              isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : isAboutPage ? "bg-orange-500" : isHomePage ? "bg-[#7859ba]" : "bg-vine-green"
+            )}>
+              <Sprout className={cn("w-6 h-6", isHirePage ? "text-black" : "text-root-cream")} />
             </div>
             <div>
-              <span className="font-display text-xl font-bold tracking-tight text-vine-green">
+              <span className={cn(
+                "font-display text-xl font-bold tracking-tight",
+                isHirePage ? "text-[#00FF99]" : isJoinPage ? "text-[#5c2057]" : isAboutPage ? "text-orange-500" : isHomePage ? "text-[#7859ba]" : "text-vine-green"
+              )}>
                 AI VINE
               </span>
-              <p className="text-[10px] tracking-widest text-muted-foreground font-mono leading-none mt-0.5">
-                USA
-              </p>
             </div>
           </Link>
 
@@ -81,7 +85,9 @@ export default function Navbar() {
                         ? "text-[#00FF99] drop-shadow-[0_0_12px_rgba(0,255,153,1)] font-semibold"
                         : isJoinPage
                           ? "text-[#5c2057] drop-shadow-[0_0_12px_rgba(206,129,200,1)] font-semibold"
-                          : "text-vine-green drop-shadow-[0_0_12px_rgba(32,120,207,1)] font-semibold"
+                          : isAboutPage
+                            ? "text-orange-500 drop-shadow-[0_0_12px_rgba(249,115,22,1)] font-semibold"
+                            : "text-vine-green drop-shadow-[0_0_12px_rgba(32,120,207,1)] font-semibold"
                       : "text-white/90 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] hover:text-white hover:drop-shadow-[0_0_15px_rgba(255,255,255,1)]"
                   )}
                 >
@@ -91,7 +97,7 @@ export default function Navbar() {
                       layoutId="activeNavIndicator"
                       className={cn(
                         "absolute bottom-0 left-0 right-0 h-[2px] rounded-full",
-                        isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : "bg-vine-green"
+                        isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : isAboutPage ? "bg-orange-500" : "bg-vine-green"
                       )}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -117,6 +123,8 @@ export default function Navbar() {
                   ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black shadow-[0_0_20px_rgba(0,255,153,0.5)] hover:shadow-[0_0_30px_rgba(0,255,153,0.8)] hover:opacity-90"
                   : isJoinPage
                     ? "bg-[#5c2057] hover:bg-[#5c2057]/90 text-white shadow-[0_0_20px_rgba(92,32,87,0.5)] hover:shadow-[0_0_30px_rgba(92,32,87,0.8)]"
+                  : isAboutPage
+                    ? "bg-orange-500 hover:bg-orange-500/90 text-white shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:shadow-[0_0_30px_rgba(249,115,22,0.8)]"
                   : isHomePage
                     ? "bg-[#7859ba] hover:bg-[#7859ba]/90 text-white shadow-[0_0_20px_rgba(120,89,186,0.5)] hover:shadow-[0_0_30px_rgba(120,89,186,0.8)]"
                     : "bg-vine-green hover:bg-vine-green/90 text-white shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
@@ -164,7 +172,9 @@ export default function Navbar() {
                             ? "bg-[#00FF99]/10 text-[#00FF99]" 
                             : isJoinPage
                               ? "bg-[#5c2057]/10 text-[#5c2057]"
-                              : "bg-vine-green/10 text-vine-green"
+                              : isAboutPage
+                                ? "bg-orange-500/10 text-orange-500"
+                                : "bg-vine-green/10 text-vine-green"
                           : "text-muted-foreground hover:bg-muted"
                       )}
                     >
@@ -193,6 +203,8 @@ export default function Navbar() {
                       ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black hover:opacity-90"
                       : isJoinPage
                         ? "bg-[#5c2057] text-white hover:bg-[#5c2057]/90"
+                      : isAboutPage
+                        ? "bg-orange-500 text-white hover:bg-orange-500/90"
                       : isHomePage
                         ? "bg-[#7859ba] text-white hover:bg-[#7859ba]/90"
                         : "bg-vine-green text-white hover:bg-vine-green/90"

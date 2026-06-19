@@ -48,10 +48,10 @@ export default function Home() {
         style={{ backgroundImage: 'url(/BlueBg.png)' }}
       >
         {/* Dark Overlay for readability */}
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/50 pointer-events-none" />
         <div 
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }}
+          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.8))' }}
         />
       </div>
 
@@ -166,7 +166,6 @@ export default function Home() {
       <section className="py-24 bg-transparent relative z-10 border-t border-[#7859ba]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="font-mono text-xs font-bold tracking-widest text-[#7859ba] uppercase">Process Workflow</span>
             <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
               Two Paths, One Vine
             </h2>
@@ -404,7 +403,6 @@ export default function Home() {
       <section className="py-24 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span className="font-mono text-xs font-bold tracking-widest text-[#7859ba] uppercase">Sectors Served</span>
             <h2 className="font-display text-3xl sm:text-5xl font-bold text-white">
               Engineered for Core Industries
             </h2>

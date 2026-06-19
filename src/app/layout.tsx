@@ -9,6 +9,12 @@ import "@fontsource/exo-2";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/ui/footer-section";
+import localFont from "next/font/local";
+
+const gunkenFont = localFont({
+  src: "../../public/fonts/Gunken.otf",
+  variable: "--font-gunken",
+});
 
 export const metadata: Metadata = {
   title: "AI VINE | Enterprise AI Staffing, Training & IT Solutions",
@@ -35,7 +41,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body 
-        className="min-h-full flex flex-col bg-background text-foreground"
+        className={`min-h-full flex flex-col bg-background text-foreground ${gunkenFont.variable}`}
         suppressHydrationWarning
       >
         <Navbar />
