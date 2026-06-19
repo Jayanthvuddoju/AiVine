@@ -55,15 +55,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className={cn(
-              "w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-12",
-              isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : isAboutPage ? "bg-orange-500" : isHomePage ? "bg-[#7859ba]" : "bg-vine-green"
+              "w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300",
+              isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : isAboutPage ? "bg-orange-500" : isHomePage ? "bg-[#F43F5E]" : "bg-vine-green shadow-[0_0_20px_rgba(32,120,207,0.3)]"
             )}>
-              <Sprout className={cn("w-6 h-6", isHirePage ? "text-black" : "text-root-cream")} />
+              <Sprout className={cn("w-6 h-6", isHirePage ? "text-black" : "text-white")} />
             </div>
             <div>
               <span className={cn(
                 "font-display text-xl font-bold tracking-tight",
-                isHirePage ? "text-[#00FF99]" : isJoinPage ? "text-[#5c2057]" : isAboutPage ? "text-orange-500" : isHomePage ? "text-[#7859ba]" : "text-vine-green"
+                isHirePage ? "text-[#00FF99]" : isJoinPage ? "text-[#5c2057]" : isAboutPage ? "text-orange-500" : isHomePage ? "text-[#F43F5E]" : "text-vine-green"
               )}>
                 AI VINE
               </span>
@@ -118,19 +118,21 @@ export default function Navbar() {
             <Link
               href="/hire"
               className={cn(
-                "px-4 py-2 text-sm font-medium rounded-vine flex items-center gap-1.5 transition-all duration-300",
+                "px-4 py-2 text-sm font-medium rounded-vine transition-all duration-300 glossy-btn",
                 isHirePage 
-                  ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black shadow-[0_0_20px_rgba(0,255,153,0.5)] hover:shadow-[0_0_30px_rgba(0,255,153,0.8)] hover:opacity-90"
+                  ? "bg-[#00FF99] text-black shadow-[0_0_20px_rgba(0,255,153,0.5)] hover:shadow-[0_0_30px_rgba(0,255,153,0.8)] hover:opacity-90"
                   : isJoinPage
                     ? "bg-[#5c2057] hover:bg-[#5c2057]/90 text-white shadow-[0_0_20px_rgba(92,32,87,0.5)] hover:shadow-[0_0_30px_rgba(92,32,87,0.8)]"
                   : isAboutPage
                     ? "bg-orange-500 hover:bg-orange-500/90 text-white shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:shadow-[0_0_30px_rgba(249,115,22,0.8)]"
                   : isHomePage
-                    ? "bg-[#7859ba] hover:bg-[#7859ba]/90 text-white shadow-[0_0_20px_rgba(120,89,186,0.5)] hover:shadow-[0_0_30px_rgba(120,89,186,0.8)]"
+                    ? "bg-[#F43F5E] hover:bg-[#F43F5E]/90 text-white shadow-[0_0_20px_rgba(244,63,94,0.5)] hover:shadow-[0_0_30px_rgba(244,63,94,0.8)]"
                     : "bg-vine-green hover:bg-vine-green/90 text-white shadow-[0_0_20px_rgba(32,120,207,0.5)] hover:shadow-[0_0_30px_rgba(32,120,207,0.8)]"
               )}
             >
-              Hire Talent <ArrowRight className="w-4 h-4" />
+              <span className="relative z-10 flex items-center gap-1.5">
+                Hire Talent <ArrowRight className="w-4 h-4" />
+              </span>
             </Link>
           </div>
 
@@ -198,19 +200,21 @@ export default function Navbar() {
                   href="/hire"
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "w-full text-center py-2.5 px-4 text-sm font-medium rounded-vine flex items-center justify-center gap-1.5 transition-colors",
+                    "w-full text-center py-2.5 px-4 text-sm font-medium rounded-vine transition-colors glossy-btn",
                     isHirePage
-                      ? "bg-gradient-to-r from-[#00FF99] to-[#00D9FF] text-black hover:opacity-90"
+                      ? "bg-[#00FF99] text-black hover:opacity-90 shadow-[0_0_20px_rgba(0,255,153,0.5)]"
                       : isJoinPage
                         ? "bg-[#5c2057] text-white hover:bg-[#5c2057]/90"
                       : isAboutPage
                         ? "bg-orange-500 text-white hover:bg-orange-500/90"
                       : isHomePage
-                        ? "bg-[#7859ba] text-white hover:bg-[#7859ba]/90"
+                        ? "bg-[#F43F5E] text-white hover:bg-[#F43F5E]/90"
                         : "bg-vine-green text-white hover:bg-vine-green/90"
                   )}
                 >
-                  Hire Talent <ArrowRight className="w-4 h-4" />
+                  <span className="relative z-10 flex items-center justify-center gap-1.5">
+                    Hire Talent <ArrowRight className="w-4 h-4" />
+                  </span>
                 </Link>
               </div>
             </div>

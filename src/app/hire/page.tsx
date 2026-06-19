@@ -4,6 +4,7 @@ import Link from "next/link";
 import HireTalentForm from "@/components/forms/HireTalentForm";
 import { Modal } from "@/components/ui/modal";
 import { Building2, ArrowRight, CheckCircle2, Database, Sparkles } from "lucide-react";
+import VisaNetworkDiagram from "@/components/ui/visa-network-diagram";
 
 export default function HirePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,39 +60,47 @@ export default function HirePage() {
         <div className="absolute bottom-0 inset-x-0 h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(0,255,153,0.15),transparent_50%)] pointer-events-none" />
       </div>
 
-      <div className="min-h-screen relative z-10">
+      <div className="min-h-screen relative z-10 overflow-x-hidden">
         {/* Hero Section Container */}
         <div className="relative min-h-[70vh] flex flex-col justify-center pt-32 pb-16">
           {/* Extra dark overlay for hero readability */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.6)_0%,transparent_80%)] pointer-events-none -z-10" />
           
-          <div className="text-center space-y-6 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h1 className="font-nevera uppercase text-xl sm:text-3xl md:text-5xl font-bold tracking-wide leading-relaxed drop-shadow-md">
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom">Hire Pre-Vetted AI Talent</span>
-              <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#bbf7d0] via-[#00FF99] to-[#065f46] drop-shadow-sm inline-block transform scale-x-[1.4] scale-y-[1.15] origin-bottom mt-6">No Guesswork</span>
-            </h1>
-            <p className="text-[#D8DEE5] font-light text-base sm:text-lg leading-relaxed max-w-2xl mx-auto drop-shadow-md tracking-wide">
-              Tell us the role. We'll deliver interview-ready AI professionals — contract, C2C, or full-time.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="flex items-center justify-center gap-2 px-8 py-4 text-[#000000] font-bold rounded-full text-sm transition-all duration-300 hover:-translate-y-[2px]"
-                style={{ 
-                  background: 'linear-gradient(90deg, #00FF99, #00D9FF)',
-                  boxShadow: '0 0 40px rgba(0,255,153,0.5)'
-                }}
-              >
-                Request Specific Talent <ArrowRight className="w-4 h-4" />
-              </button>
-              <Link
-                href="/talent"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.15)] text-[#FFFFFF] font-semibold rounded-full text-sm hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-              >
-                Browse Our Talent Pool
-              </Link>
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+            {/* Left Column: Content */}
+            <div className="text-center lg:text-left space-y-6 max-w-2xl mx-auto lg:mx-0 lg:pl-8 relative z-10">
+              <h1 className="font-nevera uppercase text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-wide leading-[1.2] drop-shadow-md">
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] inline-block transform lg:origin-left">Hire Pre-Vetted</span>
+                <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#bbf7d0] via-[#00FF99] to-[#065f46] drop-shadow-sm inline-block transform lg:origin-left mt-2">AI Talent</span>
+                <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-[#e2e8f0] to-[#64748b] inline-block transform lg:origin-left mt-2 whitespace-nowrap">No Guesswork</span>
+              </h1>
+              <p className="text-[#D8DEE5] font-light text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 drop-shadow-md tracking-wide">
+                Tell us the role. We'll deliver interview-ready AI professionals — contract, C2C, or full-time.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="flex items-center justify-center gap-2 px-8 py-4 bg-[#00FF99] text-[#000000] font-bold rounded-full text-sm transition-all duration-300 hover:-translate-y-[2px] shadow-[0_0_30px_rgba(0,255,153,0.6)] hover:shadow-[0_0_40px_rgba(0,255,153,0.8)] glossy-btn"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Request Specific Talent <ArrowRight className="w-4 h-4" />
+                  </span>
+                </button>
+                <Link
+                  href="/talent"
+                  className="flex items-center justify-center gap-2 px-8 py-4 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.15)] text-[#FFFFFF] font-semibold rounded-full text-sm hover:bg-white/10 transition-all duration-300 backdrop-blur-sm glossy-btn"
+                >
+                  <span className="relative z-10">Browse Our Talent Pool</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Visa Network Diagram */}
+            <div className="w-full h-full min-h-[400px] flex items-center justify-center mt-8 lg:mt-0 lg:-translate-y-12 lg:scale-110 origin-center lg:origin-left">
+              <VisaNetworkDiagram />
             </div>
           </div>
         </div>
@@ -173,11 +182,7 @@ export default function HirePage() {
               <div className="pt-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 text-[#000000] font-bold rounded-full text-sm transition-all duration-300 hover:-translate-y-[2px]"
-                  style={{ 
-                    background: 'linear-gradient(90deg, #00FF99, #00D9FF)',
-                    boxShadow: '0 0 40px rgba(0,255,153,0.5)'
-                  }}
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#00FF99] text-[#000000] font-bold rounded-full text-sm transition-all duration-300 hover:-translate-y-[2px] shadow-[0_0_30px_rgba(0,255,153,0.6)] hover:shadow-[0_0_40px_rgba(0,255,153,0.8)] glossy-btn"
                 >
                   Get in Touch
                 </Link>

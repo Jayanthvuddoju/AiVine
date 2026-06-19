@@ -76,9 +76,11 @@ export default function JoinPage() {
           <div className="w-full flex justify-center mt-6 relative z-10">
             <button
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center justify-center gap-2 px-10 py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full text-base hover:bg-white/20 transition-all duration-300 shadow-[0_0_30px_rgba(234,229,217,0.15),inset_0_1px_0_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(234,229,217,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] hover:-translate-y-1"
+              className="flex items-center justify-center gap-2 px-10 py-5 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full text-base hover:bg-white/20 transition-all duration-300 shadow-[0_0_30px_rgba(234,229,217,0.15),inset_0_1px_0_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(234,229,217,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] hover:-translate-y-1 glossy-btn"
             >
-              Submit Your Profile <ArrowRight className="w-5 h-5" />
+              <span className="relative z-10 flex items-center gap-2">
+                Submit Your Profile <ArrowRight className="w-5 h-5" />
+              </span>
             </button>
           </div>
         </div>
@@ -160,9 +162,9 @@ export default function JoinPage() {
               <div className="pt-2">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full text-sm hover:bg-white/20 transition-all duration-300 shadow-[0_0_30px_rgba(234,229,217,0.15),inset_0_1px_0_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(234,229,217,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] hover:-translate-y-1"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold rounded-full text-sm hover:bg-white/20 transition-all duration-300 shadow-[0_0_30px_rgba(234,229,217,0.15),inset_0_1px_0_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_rgba(234,229,217,0.25),inset_0_1px_0_rgba(255,255,255,0.6)] hover:-translate-y-1 glossy-btn"
                 >
-                  Submit Your Profile
+                  <span className="relative z-10">Submit Your Profile</span>
                 </button>
               </div>
             </div>

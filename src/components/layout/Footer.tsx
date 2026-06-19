@@ -2,9 +2,16 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Sprout, Mail, MapPin, Send, ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+  const isHirePage = pathname === "/hire";
+  const isJoinPage = pathname === "/join";
+  const isAboutPage = pathname === "/about";
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -64,10 +71,24 @@ export default function Footer() {
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-5">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-[#00FF99] flex items-center justify-center shadow-[0_0_15px_rgba(0,255,153,0.3)]">
-                <Sprout className="w-5 h-5 text-[#000000]" />
+              <div className={cn(
+                "w-8 h-8 rounded-xl flex items-center justify-center transition-colors duration-300",
+                isHirePage ? "bg-[#00FF99] shadow-[0_0_15px_rgba(0,255,153,0.3)]" : 
+                isJoinPage ? "bg-[#5c2057] shadow-[0_0_15px_rgba(92,32,87,0.3)]" : 
+                isAboutPage ? "bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,0.3)]" : 
+                isHomePage ? "bg-[#F43F5E] shadow-[0_0_15px_rgba(244,63,94,0.3)]" : 
+                "bg-vine-green shadow-[0_0_15px_rgba(32,120,207,0.3)]"
+              )}>
+                <Sprout className={cn("w-5 h-5", isHirePage ? "text-[#000000]" : "text-white")} />
               </div>
-              <span className="font-display text-lg font-bold text-[#FFFFFF] tracking-tight">
+              <span className={cn(
+                "font-display text-lg font-bold tracking-tight transition-colors duration-300",
+                isHirePage ? "text-[#00FF99]" : 
+                isJoinPage ? "text-[#5c2057]" : 
+                isAboutPage ? "text-orange-500" : 
+                isHomePage ? "text-[#F43F5E]" : 
+                "text-vine-green"
+              )}>
                 AI VINE
               </span>
             </Link>

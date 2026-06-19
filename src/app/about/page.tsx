@@ -40,10 +40,10 @@ export default function AboutPage() {
         style={{ backgroundImage: 'url(/OrangeBg.png)' }}
       >
         {/* Dark Overlay for readability */}
-        <div className="absolute inset-0 bg-black/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
         <div 
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.8))' }}
+          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.1), rgba(0,0,0,0.5))' }}
         />
       </div>
 
@@ -95,8 +95,8 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="flex justify-center pt-6 border-t border-white/10 mt-6">
-            <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-vine transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5 cursor-pointer text-sm">
-              Get in Touch &rarr;
+            <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-vine transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] hover:-translate-y-0.5 cursor-pointer text-sm glossy-btn">
+              <span className="relative z-10">Get in Touch &rarr;</span>
             </Link>
           </div>
         </div>

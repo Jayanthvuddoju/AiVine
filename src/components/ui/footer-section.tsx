@@ -101,14 +101,14 @@ export function Footer() {
           <div className="flex items-center gap-2 group">
             <div className={cn(
               "w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-12",
-              isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : isAboutPage ? "bg-orange-500" : isHomePage ? "bg-[#7859ba]" : "bg-vine-green"
+              isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : isAboutPage ? "bg-orange-500" : isHomePage ? "bg-[#F43F5E]" : "bg-vine-green"
             )}>
               <Sprout className={cn("w-6 h-6", isHirePage ? "text-black" : "text-root-cream")} />
             </div>
             <div>
               <span className={cn(
                 "font-display text-xl font-bold tracking-tight",
-                isHirePage ? "text-[#00FF99]" : isJoinPage ? "text-[#5c2057]" : isAboutPage ? "text-orange-500" : isHomePage ? "text-[#7859ba]" : "text-vine-green"
+                isHirePage ? "text-[#00FF99]" : isJoinPage ? "text-[#5c2057]" : isAboutPage ? "text-orange-500" : isHomePage ? "text-[#F43F5E]" : "text-vine-green"
               )}>
                 AI VINE
               </span>
