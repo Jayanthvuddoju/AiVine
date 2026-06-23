@@ -316,4 +316,18 @@
 .animate-pulse-line {
   animation: pulse-line 3s linear infinite;
 }
-/* force recompile */
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+.scrolling-marquee {
+  animation: marquee-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.scrolling-marquee:hover {
+  animation-play-state: paused;
+}
+/* force recompile 2 */
