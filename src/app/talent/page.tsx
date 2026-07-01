@@ -5,7 +5,7 @@ import FilterBar, { FilterState } from "@/components/talent/FilterBar";
 import CandidateCard from "@/components/talent/CandidateCard";
 import RequestProfileModal from "@/components/talent/RequestProfileModal";
 import { Candidate } from "@/types/candidate";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { SearchX, Sparkles, Sprout } from "lucide-react";
 import Fuse from "fuse.js";
 import { EngagementType } from "@/types/candidate";
@@ -92,88 +92,107 @@ export default function TalentPoolPage() {
   }, [filters, candidates]);
 
   return (
-    <div className="min-h-screen  pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        
-        {/* Page Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-vine-green/10 border border-vine-green/20 text-vine-green rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
-            <Sparkles className="w-3 h-3" /> Anonymous Talent Pool
-          </div>
-          <h1 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest tracking-tight">
-            Explore Our AI Talent Pool
-          </h1>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Browse pre-vetted AI professionals by role, skill set, and availability. Request a full profile to connect.
-          </p>
-          <p className="text-xs text-vine-green font-mono bg-vine-green/5 inline-block px-3 py-1.5 rounded border border-vine-green/10">
-            All profiles are anonymized. Candidate details shared only upon mutual interest.
-          </p>
-        </div>
-
-        {/* Filters */}
-        <FilterBar
-          filters={filters}
-          onFilterChange={setFilters}
-          onReset={handleReset}
+    <>
+      {/* Fixed Full-Screen Background */}
+      <div 
+        className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/GreenBg.png)' }}
+      >
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.35), rgba(0,0,0,0.8))' }}
         />
-
-        {/* Candidates Grid Header */}
-        <div className="flex justify-between items-center border-b border-vine-green/10 pb-2">
-          <p className="text-xs font-mono font-semibold text-muted-foreground">
-            SHOWING {filteredCandidates.length} CANDIDATE{filteredCandidates.length !== 1 ? "S" : ""}
-          </p>
-          <div className="flex items-center gap-1.5 text-xs text-vine-green font-semibold">
-            <Sprout className="w-4 h-4" /> Ready to Scale
-          </div>
-        </div>
-
-        {/* Candidates Grid */}
-        {loading ? (
-          <div className="flex justify-center py-12">
-            <div className="w-8 h-8 border-4 border-vine-green border-t-transparent rounded-full animate-spin"></div>
-          </div>
-        ) : filteredCandidates.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredCandidates.map((candidate) => (
-              <CandidateCard
-                key={candidate.id}
-                candidate={candidate}
-                onRequestProfile={setSelectedCandidateId}
-              />
-            ))}
-          </div>
-        ) : (
-          /* Empty Search State */
-          <div className="bg-card rounded-card border border-vine-green/15 p-12 text-center max-w-md mx-auto space-y-4">
-            <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-muted-foreground mx-auto">
-              <SearchX className="w-6 h-6" />
-            </div>
-            <div className="space-y-1">
-              <h3 className="font-display text-lg font-bold text-vine-forest">No Candidates Found</h3>
-              <p className="text-xs text-muted-foreground">
-                {"We couldn't find any anonymous profiles matching your selected filters. Try broadening your keywords or resetting filters."}
-              </p>
-            </div>
-            <button
-              onClick={handleReset}
-              className="px-4 py-2 bg-vine-green text-root-cream font-semibold text-xs rounded-vine hover:bg-vine-green/90 transition-colors"
-            >
-              Reset Filters
-            </button>
-          </div>
-        )}
+        <div className="absolute bottom-0 inset-x-0 h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(0,255,153,0.15),transparent_50%)] pointer-events-none" />
       </div>
 
-      {/* Request Profile Lead Capture Modal */}
-      <AnimatePresence>
-        {selectedCandidateId && (
-          <RequestProfileModal
-            candidateId={selectedCandidateId}
-            onClose={() => setSelectedCandidateId(null)}
+      <div className="min-h-screen pt-24 pb-16 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          {/* Page Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="space-y-4 text-center max-w-3xl mx-auto"
+          >
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#00FF99]/10 border border-[#00FF99]/20 text-[#00FF99] rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
+              <Sparkles className="w-3 h-3" /> Anonymous Talent Pool
+            </div>
+            <h1 className="font-nevera uppercase text-3xl sm:text-5xl font-bold text-white tracking-wide drop-shadow-md">
+              Explore Our AI Talent Pool
+            </h1>
+            <p className="text-[#8E9AA7] text-sm leading-relaxed">
+              Browse pre-vetted AI professionals by role, skill set, and availability. Request a full profile to connect.
+            </p>
+            <p className="text-xs text-[#00FF99] font-mono bg-[#00FF99]/5 inline-block px-3 py-1.5 rounded border border-[#00FF99]/10">
+              All profiles are anonymized. Candidate details shared only upon mutual interest.
+            </p>
+          </motion.div>
+
+          {/* Filters */}
+          <FilterBar
+            filters={filters}
+            onFilterChange={setFilters}
+            onReset={handleReset}
           />
-        )}
-      </AnimatePresence>
-    </div>
+
+          {/* Candidates Grid Header */}
+          <div className="flex justify-between items-center border-b border-white/[0.06] pb-2">
+            <p className="text-xs font-mono font-semibold text-[#8E9AA7]">
+              SHOWING {filteredCandidates.length} CANDIDATE{filteredCandidates.length !== 1 ? "S" : ""}
+            </p>
+            <div className="flex items-center gap-1.5 text-xs text-[#00FF99] font-semibold">
+              <Sprout className="w-4 h-4" /> Ready to Scale
+            </div>
+          </div>
+
+          {/* Candidates Grid */}
+          {loading ? (
+            <div className="flex justify-center py-12">
+              <div className="w-8 h-8 border-4 border-[#00FF99] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          ) : filteredCandidates.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredCandidates.map((candidate) => (
+                <CandidateCard
+                  key={candidate.id}
+                  candidate={candidate}
+                  onRequestProfile={setSelectedCandidateId}
+                />
+              ))}
+            </div>
+          ) : (
+            /* Empty Search State */
+            <div className="bg-[#0a0f12]/65 backdrop-blur-[24px] rounded-3xl border border-[rgba(255,255,255,0.08)] p-12 text-center max-w-md mx-auto space-y-4">
+              <div className="w-12 h-12 rounded-full bg-transparent flex items-center justify-center text-[#8E9AA7] mx-auto">
+                <SearchX className="w-6 h-6" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="font-syncopate uppercase text-lg font-bold text-white tracking-wide">No Candidates Found</h3>
+                <p className="text-xs text-[#8E9AA7]">
+                  {"We couldn't find any anonymous profiles matching your selected filters. Try broadening your keywords or resetting filters."}
+                </p>
+              </div>
+              <button
+                onClick={handleReset}
+                className="px-6 py-2.5 bg-[#00FF99] text-black font-bold text-xs rounded-full shadow-[0_0_20px_rgba(0,255,153,0.4)] hover:shadow-[0_0_30px_rgba(0,255,153,0.6)] transition-all glossy-btn"
+              >
+                <span className="relative z-10">Reset Filters</span>
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Request Profile Lead Capture Modal */}
+        <AnimatePresence>
+          {selectedCandidateId && (
+            <RequestProfileModal
+              candidateId={selectedCandidateId}
+              onClose={() => setSelectedCandidateId(null)}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   );
 }

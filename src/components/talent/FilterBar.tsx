@@ -68,19 +68,19 @@ export default function FilterBar({ filters, onFilterChange, onReset }: FilterBa
   };
 
   return (
-    <div className="bg-card rounded-card border border-vine-green/15 shadow-sm p-5 space-y-4">
+    <div className="bg-[#0a0f12]/65 backdrop-blur-[24px] rounded-3xl border border-[rgba(255,255,255,0.08)] shadow-[0_20px_60px_rgba(0,255,153,0.08)] p-5 space-y-4">
       {/* Search & Sliders */}
       <div className="flex flex-col md:flex-row gap-3">
         {/* Search Field */}
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+          <Search className="absolute left-3 top-3 w-4 h-4 text-[#8E9AA7]" />
           <input
             id="search-talent"
             type="text"
             placeholder="Search skills (e.g. PyTorch, NLP, AWS, Scala)..."
             value={filters.searchQuery}
             onChange={handleTextChange}
-            className="w-full pl-10 pr-4 py-2.5 bg-root-mist/50 border border-border rounded-vine text-sm focus:outline-none focus:border-vine-green focus:ring-1 focus:ring-vine-green text-vine-forest placeholder-muted-foreground/75"
+            className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-[rgba(255,255,255,0.08)] rounded-xl text-sm focus:outline-none focus:border-[#00FF99] focus:ring-1 focus:ring-[#00FF99] text-white placeholder-[#8E9AA7]/60"
           />
         </div>
 
@@ -88,7 +88,7 @@ export default function FilterBar({ filters, onFilterChange, onReset }: FilterBa
         <div className="flex gap-2 shrink-0 justify-end">
           <button
             onClick={() => setShowAdvanced(!showAdvanced)}
-            className="px-4 py-2.5 border border-border rounded-vine text-xs font-semibold text-vine-forest bg-root-mist/30 hover:bg-root-mist/70 transition-colors flex items-center gap-1.5"
+            className="px-4 py-2.5 border border-[rgba(255,255,255,0.08)] rounded-xl text-xs font-semibold text-white bg-white/5 hover:bg-white/10 transition-colors flex items-center gap-1.5"
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             Filters {showAdvanced ? "(Hide)" : "(Show)"}
@@ -96,7 +96,7 @@ export default function FilterBar({ filters, onFilterChange, onReset }: FilterBa
           
           <button
             onClick={onReset}
-            className="px-4 py-2.5 border border-transparent rounded-vine text-xs font-semibold text-muted-foreground hover:text-vine-green hover:bg-vine-green/5 transition-colors flex items-center gap-1.5"
+            className="px-4 py-2.5 border border-transparent rounded-xl text-xs font-semibold text-[#8E9AA7] hover:text-[#00FF99] hover:bg-[#00FF99]/5 transition-colors flex items-center gap-1.5"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             Reset
@@ -106,75 +106,75 @@ export default function FilterBar({ filters, onFilterChange, onReset }: FilterBa
 
       {/* Advanced Filters Expandable Grid */}
       {showAdvanced && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-border/80">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-white/[0.06]">
           {/* Experience level */}
           <div>
-            <label htmlFor="filter-experience" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+            <label htmlFor="filter-experience" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-[#8E9AA7] mb-1.5">
               Experience Level
             </label>
             <select
               id="filter-experience"
               value={filters.experienceLevel}
               onChange={(e) => handleSelectChange("experienceLevel", e.target.value)}
-              className="w-full bg-root-mist/50 border border-border rounded-vine px-3 py-2 text-xs text-vine-forest focus:outline-none focus:border-vine-green"
+              className="w-full bg-white/5 border border-[rgba(255,255,255,0.08)] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#00FF99]"
             >
-              <option value="">All Levels</option>
+              <option value="" className="bg-[#0a0f12]">All Levels</option>
               {EXPERIENCE_LEVELS.map((level) => (
-                <option key={level} value={level}>{level}</option>
+                <option key={level} value={level} className="bg-[#0a0f12]">{level}</option>
               ))}
             </select>
           </div>
 
           {/* Work Auth */}
           <div>
-            <label htmlFor="filter-work-auth" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+            <label htmlFor="filter-work-auth" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-[#8E9AA7] mb-1.5">
               Work Authorization
             </label>
             <select
               id="filter-work-auth"
               value={filters.workAuth}
               onChange={(e) => handleSelectChange("workAuth", e.target.value)}
-              className="w-full bg-root-mist/50 border border-border rounded-vine px-3 py-2 text-xs text-vine-forest focus:outline-none focus:border-vine-green"
+              className="w-full bg-white/5 border border-[rgba(255,255,255,0.08)] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#00FF99]"
             >
-              <option value="">All Authorizations</option>
+              <option value="" className="bg-[#0a0f12]">All Authorizations</option>
               {WORK_AUTHS.map((auth) => (
-                <option key={auth} value={auth}>{auth}</option>
+                <option key={auth} value={auth} className="bg-[#0a0f12]">{auth}</option>
               ))}
             </select>
           </div>
 
           {/* Availability */}
           <div>
-            <label htmlFor="filter-availability" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+            <label htmlFor="filter-availability" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-[#8E9AA7] mb-1.5">
               Availability
             </label>
             <select
               id="filter-availability"
               value={filters.availability}
               onChange={(e) => handleSelectChange("availability", e.target.value)}
-              className="w-full bg-root-mist/50 border border-border rounded-vine px-3 py-2 text-xs text-vine-forest focus:outline-none focus:border-vine-green"
+              className="w-full bg-white/5 border border-[rgba(255,255,255,0.08)] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#00FF99]"
             >
-              <option value="">All Availabilities</option>
+              <option value="" className="bg-[#0a0f12]">All Availabilities</option>
               {AVAILABILITIES.map((avail) => (
-                <option key={avail} value={avail}>{avail}</option>
+                <option key={avail} value={avail} className="bg-[#0a0f12]">{avail}</option>
               ))}
             </select>
           </div>
 
           {/* Engagement Type */}
           <div>
-            <label htmlFor="filter-engagement" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+            <label htmlFor="filter-engagement" className="block text-[11px] font-mono font-bold uppercase tracking-wider text-[#8E9AA7] mb-1.5">
               Engagement Type
             </label>
             <select
               id="filter-engagement"
               value={filters.engagementType}
               onChange={(e) => handleSelectChange("engagementType", e.target.value)}
-              className="w-full bg-root-mist/50 border border-border rounded-vine px-3 py-2 text-xs text-vine-forest focus:outline-none focus:border-vine-green"
+              className="w-full bg-white/5 border border-[rgba(255,255,255,0.08)] rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-[#00FF99]"
             >
-              <option value="">All Types</option>
+              <option value="" className="bg-[#0a0f12]">All Types</option>
               {ENGAGEMENT_TYPES.map((type) => (
-                <option key={type} value={type}>{type}</option>
+                <option key={type} value={type} className="bg-[#0a0f12]">{type}</option>
               ))}
             </select>
           </div>
@@ -191,11 +191,11 @@ export default function FilterBar({ filters, onFilterChange, onReset }: FilterBa
                   onChange={() => handleCheckboxChange("remoteOnly")}
                   className="sr-only"
                 />
-                <div className={`w-5 h-5 rounded border transition-colors flex items-center justify-center ${filters.remoteOnly ? 'bg-vine-green border-vine-green' : 'border-border bg-root-mist'}`}>
-                  {filters.remoteOnly && <Check className="w-3.5 h-3.5 text-root-cream" />}
+                <div className={`w-5 h-5 rounded border transition-colors flex items-center justify-center ${filters.remoteOnly ? 'bg-[#00FF99] border-[#00FF99]' : 'border-white/20 bg-white/5'}`}>
+                  {filters.remoteOnly && <Check className="w-3.5 h-3.5 text-black" />}
                 </div>
               </div>
-              <span className="text-xs font-medium text-vine-forest">Remote Only</span>
+              <span className="text-xs font-medium text-white">Remote Only</span>
             </label>
 
             {/* Relocation Open */}
@@ -208,11 +208,11 @@ export default function FilterBar({ filters, onFilterChange, onReset }: FilterBa
                   onChange={() => handleCheckboxChange("relocationOpen")}
                   className="sr-only"
                 />
-                <div className={`w-5 h-5 rounded border transition-colors flex items-center justify-center ${filters.relocationOpen ? 'bg-vine-green border-vine-green' : 'border-border bg-root-mist'}`}>
-                  {filters.relocationOpen && <Check className="w-3.5 h-3.5 text-root-cream" />}
+                <div className={`w-5 h-5 rounded border transition-colors flex items-center justify-center ${filters.relocationOpen ? 'bg-[#00FF99] border-[#00FF99]' : 'border-white/20 bg-white/5'}`}>
+                  {filters.relocationOpen && <Check className="w-3.5 h-3.5 text-black" />}
                 </div>
               </div>
-              <span className="text-xs font-medium text-vine-forest">Open to Relocation</span>
+              <span className="text-xs font-medium text-white">Open to Relocation</span>
             </label>
           </div>
         </div>

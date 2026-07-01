@@ -4,8 +4,6 @@ import type { ComponentProps, ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Sprout } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
 
 const LinkedinIcon = (props: React.ComponentProps<"svg">) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -86,30 +84,18 @@ const footerLinks: FooterSection[] = [
 ];
 
 export function Footer() {
-  const pathname = usePathname();
-  const isHirePage = pathname === "/hire";
-  const isHomePage = pathname === "/";
-  const isJoinPage = pathname === "/join";
-  const isAboutPage = pathname === "/about";
-
   return (
-    <footer className="md:rounded-t-[3rem] relative w-full max-w-7xl mx-auto flex flex-col items-center justify-center rounded-t-[2rem] border-t border-white/[0.05] bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16 mt-24">
-      <div className="bg-vine-green/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur-sm" />
+    <footer className="md:rounded-t-[3rem] relative w-full max-w-7xl mx-auto flex flex-col items-center justify-center rounded-t-[2rem] border-t border-white/[0.05] bg-[radial-gradient(35%_128px_at_50%_0%,rgba(0,255,153,0.08),transparent)] px-6 py-12 lg:py-16 mt-24">
+      <div className="bg-[#00FF99]/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur-sm" />
 
       <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
         <AnimatedContainer className="space-y-6">
           <div className="flex items-center gap-2 group">
-            <div className={cn(
-              "w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform duration-300 group-hover:rotate-12",
-              isHirePage ? "bg-[#00FF99]" : isJoinPage ? "bg-[#5c2057]" : isAboutPage ? "bg-orange-500" : isHomePage ? "bg-[#F43F5E]" : "bg-vine-green"
-            )}>
-              <Sprout className={cn("w-6 h-6", isHirePage ? "text-black" : "text-root-cream")} />
+            <div className="w-10 h-10 rounded-full bg-[#00FF99] flex items-center justify-center text-black transition-transform duration-300 group-hover:rotate-12">
+              <Sprout className="w-6 h-6" />
             </div>
             <div>
-              <span className={cn(
-                "font-display text-xl font-bold tracking-tight",
-                isHirePage ? "text-[#00FF99]" : isJoinPage ? "text-[#5c2057]" : isAboutPage ? "text-orange-500" : isHomePage ? "text-[#F43F5E]" : "text-vine-green"
-              )}>
+              <span className="font-display text-xl font-bold tracking-tight text-[#00FF99]">
                 AI VINE
               </span>
             </div>
@@ -132,7 +118,7 @@ export function Footer() {
                     <li key={link.title}>
                       <Link
                         href={link.href}
-                        className="hover:text-vine-green inline-flex items-center transition-all duration-300 group"
+                        className="hover:text-[#00FF99] inline-flex items-center transition-all duration-300 group"
                       >
                         {link.icon && <link.icon className="me-2 size-4 group-hover:scale-110 transition-transform" />}
                         {link.title}

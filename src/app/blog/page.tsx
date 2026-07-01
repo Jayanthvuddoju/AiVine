@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { BookOpen, Calendar, Clock, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { BookOpen, Calendar, Clock, ArrowRight, Sparkles } from "lucide-react";
 
 export interface BlogPost {
   slug: string;
@@ -54,74 +55,97 @@ export default function BlogListingPage() {
     : mockBlogPosts.filter(p => p.category === selectedCat);
 
   return (
-    <div className="min-h-screen  pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
-        {/* Page Header */}
-        <div className="space-y-4 text-center max-w-3xl mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-vine-green/10 border border-vine-green/20 text-vine-green rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
-            <BookOpen className="w-3.5 h-3.5" /> AI VINE INSIGHTS
-          </span>
-          <h1 className="font-display text-3xl sm:text-5xl font-bold text-vine-forest tracking-tight">
-            AI Staffing & Systems Engineering Blog
-          </h1>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            Read technical articles, interview preparation guides, and enterprise recruiting summaries from our engineering team.
-          </p>
-        </div>
+    <>
+      {/* Fixed Full-Screen Background */}
+      <div 
+        className="fixed inset-0 z-[-1] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/GreenBg.png)' }}
+      >
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at center, rgba(0,0,0,0.35), rgba(0,0,0,0.8))' }}
+        />
+        <div className="absolute bottom-0 inset-x-0 h-[500px] bg-[radial-gradient(ellipse_at_bottom,rgba(0,255,153,0.15),transparent_50%)] pointer-events-none" />
+      </div>
 
-        {/* Categories Bar */}
-        <div className="flex justify-center gap-2 flex-wrap border-b border-vine-green/10 pb-4">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCat(cat)}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold font-mono transition-colors ${
-                selectedCat === cat
-                  ? "bg-vine-green text-root-cream"
-                  : "bg-card border border-border text-muted-foreground hover:border-vine-green hover:text-vine-green"
-              }`}
-            >
-              {cat.toUpperCase()}
-            </button>
-          ))}
-        </div>
+      <div className="min-h-screen pt-24 pb-16 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          {/* Page Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="space-y-4 text-center max-w-3xl mx-auto"
+          >
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#00FF99]/10 border border-[#00FF99]/20 text-[#00FF99] rounded-full text-xs font-semibold font-mono tracking-wider uppercase">
+              <BookOpen className="w-3.5 h-3.5" /> AI VINE INSIGHTS
+            </span>
+            <h1 className="font-nevera uppercase text-3xl sm:text-5xl font-bold text-white tracking-wide drop-shadow-md">
+              AI Staffing & Systems Engineering Blog
+            </h1>
+            <p className="text-[#8E9AA7] text-sm leading-relaxed">
+              Read technical articles, interview preparation guides, and enterprise recruiting summaries from our engineering team.
+            </p>
+          </motion.div>
 
-        {/* Blog Posts List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {filteredPosts.map((post) => (
-            <div
-              key={post.slug}
-              className="bg-card rounded-card p-6 border border-vine-green/10 shadow-sm hover:shadow-md hover:border-vine-green/20 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                {/* Meta Row */}
-                <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase tracking-wider text-vine-green">
-                  <span className="bg-vine-green/10 px-2.5 py-0.5 rounded">{post.category}</span>
-                  <div className="flex gap-3 text-muted-foreground font-semibold">
-                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
-                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
+          {/* Categories Bar */}
+          <div className="flex justify-center gap-2 flex-wrap border-b border-white/[0.06] pb-4">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCat(cat)}
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold font-mono transition-all duration-300 ${
+                  selectedCat === cat
+                    ? "bg-[#00FF99] text-black shadow-[0_0_20px_rgba(0,255,153,0.4)]"
+                    : "bg-white/5 border border-[rgba(255,255,255,0.08)] text-[#8E9AA7] hover:border-[#00FF99]/30 hover:text-[#00FF99]"
+                }`}
+              >
+                {cat.toUpperCase()}
+              </button>
+            ))}
+          </div>
+
+          {/* Blog Posts List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {filteredPosts.map((post, idx) => (
+              <motion.div
+                key={post.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="bg-[#0a0f12]/65 backdrop-blur-[24px] rounded-3xl border border-[rgba(255,255,255,0.08)] shadow-[0_20px_60px_rgba(0,255,153,0.08)] p-6 hover:border-[#00FF99]/30 transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div className="space-y-4">
+                  {/* Meta Row */}
+                  <div className="flex items-center justify-between text-[10px] font-mono font-bold uppercase tracking-wider text-[#00FF99]">
+                    <span className="bg-[#00FF99]/10 px-2.5 py-0.5 rounded">{post.category}</span>
+                    <div className="flex gap-3 text-[#8E9AA7] font-semibold">
+                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {post.date}</span>
+                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
+                    </div>
                   </div>
+
+                  <h3 className="font-exo-2 text-lg sm:text-xl font-bold text-white group-hover:text-[#00FF99] transition-colors leading-snug">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+                  
+                  <p className="text-xs text-[#8E9AA7] leading-relaxed">{post.excerpt}</p>
                 </div>
 
-                <h3 className="font-display text-lg sm:text-xl font-bold text-vine-forest hover:text-vine-green transition-colors leading-snug">
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-                
-                <p className="text-xs text-muted-foreground leading-relaxed">{post.excerpt}</p>
-              </div>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="mt-6 inline-flex items-center gap-1 text-xs font-semibold text-[#00FF99] hover:underline group"
+                >
+                  Read Article <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
 
-              <Link
-                href={`/blog/${post.slug}`}
-                className="mt-6 inline-flex items-center gap-1 text-xs font-semibold text-vine-green hover:underline group"
-              >
-                Read Article <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
-          ))}
         </div>
-
       </div>
-    </div>
+    </>
   );
 }
